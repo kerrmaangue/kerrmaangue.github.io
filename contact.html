@@ -4,78 +4,294 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Kurt Maangue</title>
+<meta name="description" content="Kurt Maangue — research, data management, and administrative support for government agencies, contractors, and AEC firms.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Crect x='1' y='1' width='28' height='28' rx='3' fill='%231a1714'/%3E%3Cpath d='M20 1 H29 V10 Z' fill='%23bf5700'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js';</script>
+<style>
+:root{--burnt:#bf5700;--burnt-dark:#8a3f00;--ink:#1a1714;--ink-soft:#241f1a;--muted:#6b6459;--line:#e6e0d6;--bg:#fff;--cream:#f7f4ee;--sans:'Libre Franklin',-apple-system,Arial,sans-serif;--sp-sm:64px;--sp-md:104px;--sp-lg:136px;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+p{margin:0;}
+::selection{background:var(--burnt);color:#fff;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px;}
+.mark{display:inline-block;line-height:0;}
+.mark svg{display:block;}
+
+/* corner ticks */
+.ticked{position:relative;}
+.ticked::before,.ticked::after{content:"";position:absolute;width:12px;height:12px;border-color:var(--burnt);z-index:2;}
+.ticked::before{top:-2px;left:-2px;border-top:2px solid;border-left:2px solid;}
+.ticked::after{bottom:-2px;right:-2px;border-bottom:2px solid;border-right:2px solid;}
+
+/* header (scoped so it never touches the footer) */
+header.site{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);}
+header.site .bar{max-width:1240px;margin:0 auto;padding:0 40px;height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:19px;letter-spacing:-.01em;}
+nav.primary{display:flex;align-items:center;gap:34px;}
+nav.primary a{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:8px 2px;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;}
+nav.primary a:hover,nav.primary a.active{color:var(--burnt);border-bottom-color:var(--burnt);}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:2px;font-family:var(--sans);font-weight:800;font-size:13.5px;text-transform:uppercase;letter-spacing:.06em;border:2px solid var(--burnt);transition:background-color .15s,color .15s,transform .15s,box-shadow .15s;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(26,23,20,.16);}
+.btn-solid{background:var(--burnt);color:#fff;}
+.btn-solid:hover{background:var(--burnt-dark);border-color:var(--burnt-dark);}
+.btn-outline{background:transparent;color:var(--burnt);}
+.btn-outline:hover{background:var(--burnt);color:#fff;}
+.btn-white{background:#fff;color:var(--burnt);border-color:#fff;}
+.btn-white:hover{background:transparent;color:#fff;}
+.btn-ghost-dark{background:transparent;color:#fff;border-color:rgba(255,255,255,.4);}
+.btn-ghost-dark:hover{background:rgba(255,255,255,.08);border-color:#fff;}
+
+/* reveal (only active when JS is running) */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+.js .reveal.in-view{opacity:1;transform:none;}
+.d1{transition-delay:.05s!important}.d2{transition-delay:.15s!important}.d3{transition-delay:.25s!important}.d4{transition-delay:.35s!important}.d5{transition-delay:.45s!important}.d6{transition-delay:.55s!important}
+
+section{padding:var(--sp-md) 0;}
+.eyebrow{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.15em;color:var(--burnt);margin-bottom:18px;}
+
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;border:1.5px solid var(--ink);padding:8px 14px;}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--burnt);}
+.badge.on-dark{border-color:rgba(255,255,255,.5);color:#fff;}
+
+/* hero */
+.hero{position:relative;padding:var(--sp-lg) 0 var(--sp-md);background:var(--cream);overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle at 88% 8%,rgba(191,87,0,.12),transparent 42%),repeating-linear-gradient(0deg,rgba(26,23,20,.04) 0,rgba(26,23,20,.04) 1px,transparent 1px,transparent 44px),repeating-linear-gradient(90deg,rgba(26,23,20,.04) 0,rgba(26,23,20,.04) 1px,transparent 1px,transparent 44px);}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center;}
+.hero h1{font-weight:900;letter-spacing:-.02em;font-size:clamp(42px,6.2vw,88px);line-height:.98;margin:0 0 28px;max-width:16ch;}
+.hero h1 em{font-style:normal;color:var(--burnt);}
+.hero .lede{font-size:20px;font-weight:500;color:var(--muted);max-width:52ch;margin-bottom:36px;}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+.hero-photo{position:relative;max-width:340px;margin-left:auto;}
+.hero-photo::before{content:"";position:absolute;top:20px;left:20px;width:100%;height:100%;background:var(--burnt);}
+.hero-photo img{position:relative;z-index:1;display:block;width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:top center;border:2px solid var(--ink);background:#fff;}
+
+/* story rows */
+.story-row{position:relative;border-top:1px solid var(--line);background:var(--cream);overflow:hidden;}
+.story-row .wrap{display:grid;grid-template-columns:100px 1fr 1fr;gap:44px;align-items:center;padding:var(--sp-md) 40px;}
+.story-row .num{font-size:15px;font-weight:900;color:var(--burnt);letter-spacing:.05em;align-self:start;padding-top:8px;}
+.story-row h2{font-size:clamp(28px,3.6vw,40px);font-weight:900;letter-spacing:-.01em;margin:0 0 16px;}
+.story-row p{color:var(--muted);font-size:16.5px;max-width:48ch;margin-bottom:22px;}
+.story-row .panel{background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;min-height:230px;padding:24px;}
+.story-row.alt{background:var(--ink-soft);color:#fff;}
+.story-row.alt::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 26px);}
+.story-row.alt .wrap{position:relative;z-index:1;}
+.story-row.alt p{color:#c2bbae;}
+.story-row.alt .panel{background:#332c24;border-color:#453b30;}
+
+/* stats */
+.stat-band{position:relative;background:var(--ink);color:#fff;padding:var(--sp-md) 0;overflow:hidden;}
+.stat-band::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle at 12% 30%,rgba(191,87,0,.18),transparent 40%),repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 40px);}
+.stat-band .wrap{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
+.stat b{display:block;font-size:clamp(40px,5vw,64px);font-weight:900;line-height:1;color:var(--burnt);}
+.stat span{display:block;margin-top:12px;font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#c2bbae;}
+
+/* intro band */
+.page-intro{background:var(--cream);border-bottom:1px solid var(--line);padding:var(--sp-sm) 0;}
+.breadcrumb{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:18px;text-transform:uppercase;letter-spacing:.05em;}
+.breadcrumb a{color:var(--burnt);}
+.page-intro h1{font-size:clamp(36px,5.2vw,58px);font-weight:900;letter-spacing:-.02em;margin:0 0 16px;}
+.page-intro p{font-size:17.5px;color:var(--muted);max-width:60ch;}
+
+/* work list */
+.work-list{border-top:2px solid var(--ink);}
+.work-row{display:grid;grid-template-columns:90px 1fr 230px 60px;gap:24px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line);transition:background-color .15s;}
+.work-row:hover{background:var(--cream);}
+.work-row .idx{font-size:14px;font-weight:800;color:var(--burnt);}
+.work-row h3{font-size:20.5px;font-weight:800;margin:0 0 6px;letter-spacing:-.01em;}
+.work-row .client{font-size:13.5px;color:var(--muted);font-weight:500;}
+.work-row .cat{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+.work-row .arrow{font-size:20px;color:var(--burnt);text-align:right;font-weight:700;transition:transform .15s;}
+.work-row:hover .arrow{transform:translateX(4px);}
+
+/* about */
+.about-top-grid{display:grid;grid-template-columns:1fr 200px;gap:52px;align-items:start;}
+.about-photo{position:relative;max-width:200px;}
+.about-photo::before{content:"";position:absolute;top:16px;left:16px;width:100%;height:100%;background:var(--burnt);}
+.about-photo img{position:relative;z-index:1;display:block;width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:top center;border:2px solid var(--ink);background:#fff;}
+.about-lede{font-size:23px;font-weight:600;max-width:52ch;margin-bottom:20px;letter-spacing:-.01em;}
+.about-who{color:var(--muted);font-size:16.5px;max-width:64ch;margin-bottom:14px;}
+.clients-row{margin-top:24px;padding-top:var(--sp-sm);border-top:1px solid var(--line);}
+.clients-list{display:flex;flex-wrap:wrap;gap:10px;}
+.clients-list span{font-size:13px;font-weight:700;background:var(--cream);border:1px solid var(--line);padding:9px 16px;}
+
+/* contact */
+.contact-band{position:relative;background:var(--ink);color:#fff;padding:var(--sp-lg) 0;text-align:center;overflow:hidden;}
+.contact-band::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 0%,rgba(191,87,0,.22),transparent 55%);}
+.contact-band .wrap{position:relative;}
+.contact-band .eyebrow{color:#ffb37a;}
+.contact-band h2{font-size:clamp(36px,5.6vw,66px);font-weight:900;letter-spacing:-.02em;margin:0 auto 24px;max-width:18ch;}
+.contact-band p{color:#c9c2b6;font-size:17px;max-width:54ch;margin:0 auto 34px;}
+.contact-band .badges{justify-content:center;margin-bottom:34px;}
+.contact-details{background:var(--cream);padding:var(--sp-sm) 0;}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.contact-cell{background:#fff;padding:26px 28px;}
+.contact-cell .label{display:block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px;}
+.contact-cell .value{font-size:16px;font-weight:700;}
+.li-link{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:700;transition:color .15s;}
+.li-link:hover{color:var(--burnt);}
+.li-link svg{display:block;flex:none;}
+.booking .head{max-width:640px;margin-bottom:36px;}
+.booking h2{font-size:clamp(30px,4vw,46px);font-weight:900;letter-spacing:-.02em;margin:0 0 14px;}
+.booking .head p{color:var(--muted);}
+.booking-frame{border:2px solid var(--ink);background:var(--cream);overflow:hidden;}
+.booking-frame iframe{width:100%;height:660px;border:0;display:block;}
+.booking-note{text-align:center;margin-top:18px;font-size:14px;color:var(--muted);}
+.booking-note a{color:var(--burnt);font-weight:700;}
+
+/* footer (clean 4-column layout) */
+footer.site{background:var(--ink);color:#c9c2b6;border-top:4px solid var(--burnt);}
+footer.site .inner{max-width:1240px;margin:0 auto;padding:var(--sp-sm) 40px 28px;}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:56px;align-items:start;padding-bottom:40px;border-bottom:1px solid #3a352d;}
+.f-brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:900;font-size:19px;margin-bottom:16px;}
+.f-blurb{font-size:14.5px;line-height:1.7;max-width:38ch;margin-bottom:18px;}
+.f-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.f-tags span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;border:1px solid rgba(255,255,255,.35);padding:6px 10px;}
+.f-col h4{margin:0 0 18px;color:#fff;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;}
+.f-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+.f-col a{font-size:14.5px;display:inline-flex;align-items:center;gap:10px;transition:color .15s;}
+.f-col a:hover{color:#fff;}
+.f-col a.li:hover{color:var(--burnt);}
+.f-col svg{display:block;flex:none;}
+.f-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:24px;font-size:12.5px;color:#8a8375;}
+
+@media (max-width:900px){
+  header.site .bar{padding:0 22px;height:72px;}
+  nav.primary{display:none;}
+  .wrap{padding:0 22px;}
+  section{padding:64px 0;}
+  .hero{padding:64px 0 48px;}
+  .hero .wrap{grid-template-columns:1fr;gap:36px;}
+  .hero-photo{max-width:230px;margin:0 0 10px;}
+  .about-top-grid{grid-template-columns:1fr;}
+  .about-photo{max-width:170px;order:-1;}
+  .story-row .wrap{grid-template-columns:1fr;gap:22px;padding:52px 22px;}
+  .stat-band{padding:56px 0;}
+  .stat-band .wrap{grid-template-columns:repeat(2,1fr);row-gap:32px;}
+  .work-row{grid-template-columns:40px 1fr;row-gap:6px;}
+  .work-row .client,.work-row .cat{grid-column:2;}
+  .work-row .arrow{display:none;}
+  .contact-band{padding:76px 0;}
+  .contact-grid{grid-template-columns:1fr;}
+  .booking-frame iframe{height:560px;}
+  footer.site .inner{padding:52px 22px 24px;}
+  .f-grid{grid-template-columns:1fr;gap:36px;}
+}
+</style>
 </head>
 <body>
-
 <header class="site">
-  <div class="wrap">
-    <div class="brand"><span class="brand-mark"></span> Kurt Maangue</div>
-    <nav class="primary">
-      <a href="index.html">Home</a>
-      <a href="work.html">Selected work</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-    <a class="btn btn-solid" href="contact.html">Start a project</a>
+  <div class="bar">
+    <a class="brand" href="index.html"><span class="mark"><svg width="30" height="30" viewBox="0 0 30 30"><rect x="1" y="1" width="28" height="28" rx="3" fill="#1a1714"/><path d="M20 1 H29 V10 Z" fill="#bf5700"/></svg></span> Kurt Maangue</a>
+    <nav class="primary"><a href="index.html">Home</a><a href="work.html">Selected work</a><a href="about.html">About</a><a href="contact.html" class="active">Contact</a></nav>
+    <a class="btn btn-solid" href="contact.html">Work with me</a>
   </div>
 </header>
-
 <div class="contact-band">
-  <div class="wrap reveal in-view">
+  <div class="wrap reveal">
     <p class="eyebrow">Get in touch</p>
+    <div class="badges">
+        <span class="badge on-dark"><span class="dot"></span>Full-time</span>
+        <span class="badge on-dark"><span class="dot"></span>Part-time</span>
+        <span class="badge on-dark"><span class="dot"></span>Project-based</span>
+      </div>
     <h2>Let's line up the scope.</h2>
-    <p>Send over the project, the timeline, and where things currently stand — a permit set, a messy spreadsheet, or just a calendar that needs a keeper. I'll follow up within one business day.</p>
+    <p>Send over the role or the project, the timeline, and where things currently stand — a permit set, a messy spreadsheet, or a calendar that needs a keeper. I'll follow up within one business day.</p>
     <a class="btn btn-white" href="mailto:maanguekurt@gmail.com">Email me</a>
   </div>
 </div>
-
 <div class="contact-details">
   <div class="wrap">
     <div class="contact-grid">
-      <div class="contact-cell reveal"><span class="label">Name</span><span class="value">Kurt Maangue</span></div>
-      <div class="contact-cell reveal"><span class="label">Role</span><span class="value">Research &amp; data management specialist</span></div>
-      <div class="contact-cell reveal"><span class="label">Email</span><span class="value">maanguekurt@gmail.com</span></div>
-      <div class="contact-cell reveal"><span class="label">Location</span><span class="value">Davao City, Philippines · Remote, US hours</span></div>
-      <div class="contact-cell reveal"><span class="label">Availability</span><span class="value">Booking Q1 2027</span></div>
-      <div class="contact-cell reveal"><span class="label">LinkedIn</span><span class="value">linkedin.com/in/kurtmaangue</span></div>
+      <div class="contact-cell"><span class="label">Name</span><span class="value">Kurt Maangue</span></div>
+      <div class="contact-cell"><span class="label">Role</span><span class="value">Research &amp; data management specialist</span></div>
+      <div class="contact-cell"><span class="label">Email</span><span class="value"><a href="mailto:maanguekurt@gmail.com">maanguekurt@gmail.com</a></span></div>
+      <div class="contact-cell"><span class="label">Location</span><span class="value">Davao City, Philippines · Remote, US hours</span></div>
+      <div class="contact-cell"><span class="label">Availability</span><span class="value">Full-time, part-time &amp; project-based</span></div>
+      <div class="contact-cell"><span class="label">LinkedIn</span><a class="li-link" href="https://www.linkedin.com/in/kurtmaangue" target="_blank" rel="noopener noreferrer" aria-label="Kurt Maangue on LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#1a1714"/><text x="4" y="17" font-family="Libre Franklin,Arial,sans-serif" font-weight="800" font-size="11" fill="#fff">in</text></svg> linkedin.com/in/kurtmaangue</a></div>
     </div>
   </div>
 </div>
-
-<footer class="site">
+<section class="booking" id="book">
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <h4>Kurt Maangue</h4>
-        <p>Freelance research &amp; data management specialist working with government agencies, contractors, and AEC firms.</p>
+    <div class="head">
+      <p class="eyebrow">Book a call</p>
+      <h2>Pick a time that works</h2>
+      <p>Grab a slot directly on my calendar — no back-and-forth over email needed.</p>
+    </div>
+    <div class="booking-frame"><iframe src="https://calendar.app.google/V81jtjZLUh1KGZScA?gv=true" title="Book a call with Kurt Maangue" loading="lazy"></iframe></div>
+    <p class="booking-note">Calendar not loading? <a href="https://calendar.app.google/V81jtjZLUh1KGZScA" target="_blank" rel="noopener noreferrer">Open the booking page directly →</a></p>
+  </div>
+</section>
+<footer class="site">
+  <div class="inner">
+    <div class="f-grid">
+      <div class="f-col">
+        <div class="f-brand"><span class="mark"><svg width="30" height="30" viewBox="0 0 30 30"><rect x="1" y="1" width="28" height="28" rx="3" fill="#f7f4ee"/><path d="M20 1 H29 V10 Z" fill="#bf5700"/></svg></span> Kurt Maangue</div>
+        <p class="f-blurb">Research &amp; data management specialist supporting government agencies, contractors, and AEC firms.</p>
+        <div class="f-tags"><span>Full-time</span><span>Part-time</span><span>Project-based</span></div>
       </div>
-      <div>
-        <h4>Site</h4>
+      <div class="f-col">
+        <h4>Navigate</h4>
         <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="work.html">Selected work</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div>
+      <div class="f-col">
         <h4>Connect</h4>
         <ul>
-          <li><a href="mailto:maanguekurt@gmail.com">Email</a></li>
-          <li><a href="https://www.linkedin.com/in/kurtmaangue">LinkedIn</a></li>
+          <li><a href="mailto:maanguekurt@gmail.com">maanguekurt@gmail.com</a></li>
+          <li><a class="li" href="https://www.linkedin.com/in/kurtmaangue" target="_blank" rel="noopener noreferrer" aria-label="Kurt Maangue on LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="currentColor"/><text x="4" y="17" font-family="Libre Franklin,Arial,sans-serif" font-weight="800" font-size="11" fill="#1a1714">in</text></svg> LinkedIn</a></li>
+          <li><a href="contact.html#book">Book a call</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="f-bottom">
       <span>© 2026 Kurt Maangue</span>
-      <span>Independent contractor · Not affiliated with any government agency</span>
+      <span>Davao City, Philippines · Remote, US hours</span>
     </div>
   </div>
 </footer>
-
-<script src="animations.js" defer></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    els.forEach(function(e){e.classList.add('in-view');});
+  } else {
+    var o = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in-view'); o.unobserve(en.target);} });
+    },{threshold:0.12});
+    els.forEach(function(e){o.observe(e);});
+  }
+  var counters = document.querySelectorAll('[data-count]');
+  if(!reduce && 'IntersectionObserver' in window){
+    counters.forEach(function(c){ c.textContent = '0'; });
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ run(en.target); co.unobserve(en.target);} });
+    },{threshold:0.5});
+    counters.forEach(function(c){co.observe(c);});
+  }
+  function run(el){
+    var t = el.getAttribute('data-count'), m = t.match(/[\d.]+/);
+    if(!m){ el.textContent = t; return; }
+    var n = parseFloat(m[0]), suffix = t.slice(m.index + m[0].length), s = performance.now();
+    (function tick(now){
+      var p = Math.min((now - s)/900, 1), e = 1 - Math.pow(1-p, 3);
+      el.textContent = Math.round(n*e) + suffix;
+      if(p < 1) requestAnimationFrame(tick); else el.textContent = t;
+    })(s);
+  }
+})();
+</script>
 </body>
 </html>
