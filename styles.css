@@ -57,7 +57,7 @@ section{padding:var(--sp-md) 0;}
 .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
 
 /* hero: full-width, no photo, CSS-only background */
-.hero{position:relative;padding:var(--sp-lg) 0 var(--sp-md);overflow:hidden;}
+.hero{position:relative;padding:var(--sp-lg) 0 var(--sp-md);overflow:hidden;isolation:isolate;}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:
     radial-gradient(circle at 15% 10%,rgba(191,87,0,.18),transparent 45%),
@@ -65,7 +65,8 @@ section{padding:var(--sp-md) 0;}
     repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 42px),
     repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 42px);
 }
-.hero .wrap{position:relative;max-width:900px;}
+.hero .wrap{position:relative;max-width:1120px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+.hero-copy{min-width:0;}
 .hero h1{font-weight:800;letter-spacing:-.02em;font-size:clamp(38px,5.4vw,66px);line-height:1.05;margin:0 0 22px;color:var(--text-strong);}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-light));-webkit-background-clip:text;background-clip:text;color:transparent;}
 .hero .lede{font-size:19px;color:var(--muted);max-width:60ch;margin-bottom:32px;}
@@ -73,11 +74,21 @@ section{padding:var(--sp-md) 0;}
 .status-badge{display:inline-flex;align-items:center;gap:10px;padding:9px 18px 9px 14px;border:1px solid var(--border);border-radius:999px;background:var(--card);font-size:13px;font-weight:600;color:var(--text);margin-bottom:26px;}
 .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);position:relative;flex:none;}
 .pulse-dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;background:var(--accent);opacity:.55;animation:pulseDot 1.8s ease-out infinite;}
+
+/* circular hero headshot with burnt-orange aura ring */
+.hero-photo-wrap{display:flex;justify-content:center;}
+.hero-photo-ring{
+  width:260px;height:260px;border-radius:50%;padding:5px;flex:none;
+  background:conic-gradient(from 180deg,var(--accent),var(--accent-light),var(--accent));
+  box-shadow:0 0 0 8px rgba(191,87,0,.10),0 20px 50px rgba(0,0,0,.5);
+  position:relative;
+}
+.hero-photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top center;display:block;border:4px solid var(--bg);}
 @keyframes pulseDot{0%{transform:scale(.5);opacity:.6;}70%{transform:scale(1.9);opacity:0;}100%{opacity:0;}}
 .hero-highlights{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px;}
 .highlight-chip{display:flex;align-items:center;gap:9px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:10px;font-size:13px;font-weight:600;color:var(--text);}
 .highlight-chip svg{width:17px;height:17px;flex:none;}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:4px;}
 
 /* glass cards used for service rows / icon panels */
 .glass-icon{
@@ -170,8 +181,8 @@ section{padding:var(--sp-md) 0;}
 .booking .head{max-width:640px;margin:0 auto 32px;text-align:center;}
 .booking h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;letter-spacing:-.02em;margin:0 0 12px;color:var(--text-strong);}
 .booking .head p{color:var(--muted);}
-.booking-frame{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card);}
-.booking-frame iframe{width:100%;height:640px;border:0;display:block;}
+.booking-frame{border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:16px;overflow:hidden;background:#ffffff;padding:2px;}
+.booking-frame iframe{width:100%;height:640px;border:0;display:block;border-radius:14px;color-scheme:light;background:#fff;}
 .booking-note{text-align:center;margin-top:16px;font-size:13.5px;color:var(--muted);}
 .booking-note a{color:var(--accent);font-weight:600;}
 
@@ -197,6 +208,9 @@ footer.site .inner{max-width:1200px;margin:0 auto;padding:var(--sp-sm) 40px 28px
   .wrap{padding:0 20px;}
   section{padding:60px 0;}
   .hero{padding:56px 0 48px;}
+  .hero .wrap{grid-template-columns:1fr;gap:32px;}
+  .hero-photo-wrap{order:-1;}
+  .hero-photo-ring{width:170px;height:170px;}
   .story-row .wrap{grid-template-columns:1fr;gap:20px;padding:48px 20px;}
   .glass-icon,.pickleball-frame{height:190px;}
   .stat-band .wrap{grid-template-columns:repeat(2,1fr);row-gap:28px;}
