@@ -277,7 +277,26 @@ footer.site .inner{max-width:1200px;margin:0 auto;padding:var(--sp-sm) 40px 28px
 .ps-card h3{font-size:19px;font-weight:700;color:var(--text-strong);margin:0 0 12px;}
 .ps-card p{font-size:15px;color:var(--muted);}
 
+/* ---------- experience card (detailed work history) ---------- */
+.exp-section{margin-top:56px;}
+.exp-card{background:var(--card);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:16px;padding:36px 38px;transition:border-color .2s ease;}
+.exp-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--border);}
+.exp-title h3{font-size:20px;font-weight:800;color:var(--text-strong);margin:0 0 6px;letter-spacing:-.01em;}
+.exp-title .exp-company{font-size:14.5px;color:var(--muted);}
+.exp-title .exp-company b{color:var(--accent);font-weight:700;}
+.exp-meta{text-align:right;}
+.exp-meta .exp-dates{display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.exp-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);background:var(--accent-dim);padding:6px 12px;border-radius:999px;}
+.exp-bullets{display:flex;flex-direction:column;gap:18px;}
+.exp-bullet{display:grid;grid-template-columns:3px 1fr;gap:18px;}
+.exp-bullet .bar{background:var(--accent);border-radius:2px;}
+.exp-bullet h4{font-size:14.5px;font-weight:700;color:var(--text-strong);margin:0 0 5px;}
+.exp-bullet p{font-size:14px;color:var(--muted);margin:0;line-height:1.6;}
+
 @media (max-width:900px){
+  .exp-card{padding:26px 22px;}
+  .exp-head{flex-direction:column;}
+  .exp-meta{text-align:left;}
   .role-banner{grid-template-columns:1fr;}
   .scope-grid{grid-template-columns:1fr;}
   .scope-card.cte{grid-column:span 1;}
