@@ -1,5 +1,5 @@
-// Immediate Theme Initialization (prevents flash of wrong theme)
-(function initTheme() {
+// Apply stored theme immediately on load to prevent flickering
+(function () {
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
 })();
@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
   const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
 
-  // Set initial button state
   updateToggleButton(currentTheme);
 
   if (themeToggleBtn) {
