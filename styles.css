@@ -206,3 +206,34 @@ footer.site.exec .wrap{display:block}
 @media(max-width:860px){.feature-list .card{display:flex}.offset{display:block}.offset>h1,.offset>h2{position:static}.offset>.grid{grid-template-columns:1fr}.offset>.grid>:nth-child(even){margin-top:0}.fgrid{grid-template-columns:1fr 1fr}.calendar-frame{aspect-ratio:auto}}
 @media(max-width:560px){.fgrid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.js .reveal-section h1,.js .reveal-section h2{clip-path:none;animation:none}.hero .portrait,.hero:before{transform:none}.hero:after,.closing:after,.mbadge{animation:none}.btn:before{transition:none}}
+/* ===== v3 ===== */
+/* section-level reveals: 0.8s cubic-bezier slide-up + scale + fade */
+.js .parallax-slide-up,.js .staggered-section-reveal{opacity:0}
+.js .reveal-section.in-view,.js .parallax-slide-up.in-view,.js .staggered-section-reveal.in-view{opacity:1;animation:slideUpScale .8s cubic-bezier(.16,1,.3,1) backwards}
+@keyframes slideUpScale{from{opacity:0;transform:translateY(56px) scale(.97)}to{opacity:1;transform:none}}
+/* hero overflow fix */
+.hero{overflow:visible;position:relative;z-index:2;padding:80px 0 88px}
+.hero:before{transform:none;inset:0}
+.hero-grid{align-items:center}.hero-grid>*{min-width:0}
+.metrics{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));align-items:stretch}
+.metrics div{overflow-wrap:anywhere;line-height:1.35}
+.hero+*{position:relative;z-index:1}
+/* compact "What I take off your plate" */
+#services{padding:48px 0 44px}#services .intro{margin-bottom:22px}
+.tight{grid-template-columns:repeat(2,1fr);gap:20px}
+.focal{padding:56px 0 40px}
+@media(max-width:700px){.tight{grid-template-columns:1fr}}
+/* calendar: full width, taller, high contrast */
+.calendar-container{width:100%;max-width:1100px;min-height:700px;padding:12px}
+.calendar-frame{aspect-ratio:auto;min-height:700px;max-height:none}
+.calendar-frame iframe{width:100%;min-width:0;height:clamp(700px,92vh,880px);min-height:700px}
+[data-theme="dark"] .calendar-container{--cal-head:#FFFFFF;--cal-body:#E2E8F0}
+[data-theme="dark"] .calendar-frame iframe{filter:invert(1) hue-rotate(180deg) contrast(1.2) brightness(1.15)}
+/* premium light mode */
+[data-theme="light"]{--bg:#F6F7F9;--card:#FFFFFF;--surface:#F0F2F5;--surface-a:rgba(255,255,255,.7);--line:#E2E8F0;--glass:#FFFFFF;--glass-line:#E2E8F0;--shadow:0 12px 32px -8px rgba(15,23,42,.05);--shadow-hover:0 18px 40px -8px rgba(15,23,42,.10);--grid:rgba(15,23,42,.03)}
+[data-theme="light"] body:before{background:radial-gradient(ellipse 55% 45% at 90% 8%,rgba(191,87,0,.05),transparent 70%),linear-gradient(rgba(15,23,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.03) 1px,transparent 1px),linear-gradient(180deg,#F8F9FA,#F4F5F7);background-size:auto,64px 64px,64px 64px,auto}
+[data-theme="light"] .hero:before{background-image:linear-gradient(rgba(15,23,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.03) 1px,transparent 1px);background-size:32px 32px;opacity:1}
+[data-theme="light"] .card,[data-theme="light"] .tool,[data-theme="light"] .timeline li{background:#fff;border:1px solid #E2E8F0;box-shadow:var(--shadow)}
+[data-theme="light"] .card.g{background:linear-gradient(145deg,rgba(191,87,0,.045),#fff 55%)}
+[data-theme="light"] .card:hover,[data-theme="light"] .tool:hover{border-color:#BF5700;box-shadow:0 0 0 1px #BF5700,var(--shadow-hover)}
+@media(prefers-reduced-motion:reduce){.js .parallax-slide-up,.js .staggered-section-reveal{opacity:1;animation:none}}
