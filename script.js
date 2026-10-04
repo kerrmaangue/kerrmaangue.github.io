@@ -7,7 +7,7 @@ set(r.getAttribute('data-theme')||'dark',false);
 if(b)b.addEventListener('click',function(){r.classList.add('theme-anim');set(r.getAttribute('data-theme')==='dark'?'light':'dark',true);
 clearTimeout(window.__themeT);window.__themeT=setTimeout(function(){r.classList.remove('theme-anim')},400)})});})();
 /* Scroll reveal: sections, grids, cards, timeline items */
-(function(){var els=[].slice.call(document.querySelectorAll('.reveal-section,.fade-in-up,.slide-in-left,.parallax-slide-up,.staggered-section-reveal'));
+(function(){var els=[].slice.call(document.querySelectorAll('.reveal-section'));
 var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in-view')});return}
 var o=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');o.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
