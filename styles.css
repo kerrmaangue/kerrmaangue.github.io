@@ -75,6 +75,13 @@ nav a.nav-cta:hover{filter:brightness(1.1)}
 .formbox label.f{display:block;font-weight:600;font-size:.92rem;margin-bottom:4px}
 .actions{display:flex;gap:12px;margin-top:20px}.actions .btn{cursor:pointer;font:inherit;font-weight:600}
 .err{color:#F87171;min-height:1.5em;margin:12px 0 0}[data-theme="light"] .err{color:#B91C1C}
+[hidden]{display:none!important}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:16px 16px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 70% 40%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 80% at 70% 40%,#000,transparent 75%);opacity:.8}
+[data-theme="light"] body:before{background:radial-gradient(ellipse 55% 45% at 90% 8%,rgba(191,87,0,.07),transparent 70%),linear-gradient(115deg,transparent 38%,rgba(255,255,255,.55) 50%,transparent 62%),repeating-linear-gradient(45deg,rgba(17,24,39,.05) 0 1px,transparent 1px 36px),repeating-linear-gradient(-45deg,rgba(17,24,39,.05) 0 1px,transparent 1px 36px),linear-gradient(90deg,rgba(17,24,39,.07) 1px,transparent 1px),linear-gradient(rgba(17,24,39,.05) 1px,transparent 1px);background-size:auto,auto,auto,auto,120px 100%,100% 140px}
+[data-theme="light"] .hero:before{background-image:repeating-linear-gradient(45deg,rgba(17,24,39,.06) 0 1px,transparent 1px 22px),repeating-linear-gradient(-45deg,rgba(17,24,39,.06) 0 1px,transparent 1px 22px);background-size:auto;opacity:.9}
+.alt{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.scope{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}.scope div{padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:var(--surface-a);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-weight:600}
+.note2{font-size:.9rem;color:var(--muted)}
 @media(max-width:860px){section{padding:60px 0}.hero-grid,.split{grid-template-columns:1fr}.portrait{order:-1}.metrics{grid-template-columns:1fr}.ring img{width:220px;height:220px}.about-img{max-width:320px}}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .js .reveal{opacity:0}.js .reveal.in-view{opacity:1;animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) backwards}
