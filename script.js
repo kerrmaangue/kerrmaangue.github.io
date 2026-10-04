@@ -55,3 +55,9 @@ if(!r.ok)throw 0;var cal=f.getAttribute('data-cal');
 f.parentNode.innerHTML='<h2>Thank you</h2><p>Your inquiry is in. A confirmation is on its way to your inbox, and I will follow up with next steps shortly.</p><p><a class="btn primary" href="'+cal+'">Book an intro call</a></p>';
 }).catch(function(){sending=false;sync();msg.textContent='Something went wrong. Please try again or use the email link in the footer.'})});
 show(0)})();
+
+(function(){var c=document.querySelector('.cal[data-embed]');if(!c)return;
+var u=(c.getAttribute('data-embed')||'').trim();if(!/^https:\/\/calendar\.google\.com\//.test(u))return;
+var f=document.createElement('iframe');f.src=u;f.title='Book a discovery call';f.loading='lazy';
+c.insertBefore(f,c.firstChild);c.classList.add('has-embed');
+var t=c.querySelector('.cal-fallback span');if(t)t.textContent='Calendar not loading? ';})();
