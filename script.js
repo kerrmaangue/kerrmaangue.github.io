@@ -1,39 +1,23 @@
+/* Theme toggle */
 (function(){var K='theme',r=document.documentElement;
-function set(t){r.setAttribute('data-theme',t);try{localStorage.setItem(K,t)}catch(e){}
-var b=document.getElementById('theme-toggle');if(b)b.setAttribute('aria-label','Switch to '+(t==='dark'?'light':'dark')+' mode')}
+function set(t,save){r.setAttribute('data-theme',t);if(save){try{localStorage.setItem(K,t)}catch(e){}}
+var b=document.getElementById('theme-toggle');if(b){b.setAttribute('aria-label','Switch to '+(t==='dark'?'light':'dark')+' mode');b.setAttribute('aria-pressed',String(t==='dark'))}}
 document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('theme-toggle');
-set(r.getAttribute('data-theme')||'dark');
-if(b)b.addEventListener('click',function(){set(r.getAttribute('data-theme')==='dark'?'light':'dark')})});})();
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els = document.querySelectorAll('.reveal');
-  if(reduce || !('IntersectionObserver' in window)){
-    els.forEach(function(e){e.classList.add('in-view');});
-  } else {
-    var o = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in-view'); o.unobserve(en.target);} });
-    },{threshold:0.12});
-    els.forEach(function(e){o.observe(e);});
-  }
-  var counters = document.querySelectorAll('[data-count]');
-  if(!reduce && 'IntersectionObserver' in window){
-    counters.forEach(function(c){ c.textContent = '0'; });
-    var co = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting){ run(en.target); co.unobserve(en.target);} });
-    },{threshold:0.5});
-    counters.forEach(function(c){co.observe(c);});
-  }
-  function run(el){
-    var t = el.getAttribute('data-count'), m = t.match(/[\d.]+/);
-    if(!m){ el.textContent = t; return; }
-    var n = parseFloat(m[0]), suffix = t.slice(m.index + m[0].length), s = performance.now();
-    (function tick(now){
-      var p = Math.min((now - s)/900, 1), e = 1 - Math.pow(1-p, 3);
-      el.textContent = Math.round(n*e) + suffix;
-      if(p < 1) requestAnimationFrame(tick); else el.textContent = t;
-    })(s);
-  }
-})();
+set(r.getAttribute('data-theme')||'dark',false);
+if(b)b.addEventListener('click',function(){r.classList.add('theme-anim');set(r.getAttribute('data-theme')==='dark'?'light':'dark',true);
+clearTimeout(window.__themeT);window.__themeT=setTimeout(function(){r.classList.remove('theme-anim')},400)})});})();
+/* Scroll reveal: sections, grids, cards, timeline items */
+(function(){var els=[].slice.call(document.querySelectorAll('.reveal-section,.fade-in-up,.slide-in-left'));
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in-view')});return}
+var o=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');o.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+els.forEach(function(e){o.observe(e)});})();
+/* Calendar: paste the Google appointment-schedule embed URL below (https://calendar.google.com/...) */
+(function(){var CAL_EMBED='https://calendar.google.com/calendar/appointments/schedules/AcZssZ3it_VkPKrxvsED4t0x5Pf07ydVxVqoLuqXjPIUukcu_rU-KY_zUWlemgOP_sPTm85hLgXLFMBo?gv=true';
+[].forEach.call(document.querySelectorAll('.calendar-container'),function(c){
+var u=(c.getAttribute('data-embed')||CAL_EMBED).trim();if(!/^https:\/\/calendar\.google\.com\//.test(u))return;
+var fr=c.querySelector('.calendar-frame'),f=document.createElement('iframe');f.src=u;f.title='Book a discovery call';f.loading='lazy';fr.appendChild(f);c.classList.add('has-embed')})})();
+/* Intake form */
 (function(){var f=document.getElementById('intake');if(!f)return;
 var steps=[].slice.call(f.querySelectorAll('.step')),last=steps.length-1,i=0,msg=document.getElementById('msg'),back=document.getElementById('back'),next=document.getElementById('next'),sub=document.getElementById('sub'),lab=document.getElementById('stepLabel'),bar=document.getElementById('bar'),sending=false;
 function stepOk(s){var r=s.getAttribute('data-need');if(r==='choice')return !!s.querySelector('input:checked');if(r==='fields'){var a=s.querySelectorAll('[required]');for(var k=0;k<a.length;k++){var v=a[k].value.trim();if(!v||(a[k].type==='email'&&!/^\S+@\S+\.\S+$/.test(v)))return false}}return true}
@@ -56,8 +40,3 @@ f.parentNode.innerHTML='<h2>Thank you</h2><p>Your inquiry is in. A confirmation 
 }).catch(function(){sending=false;sync();msg.textContent='Something went wrong. Please try again or use the email link in the footer.'})});
 show(0)})();
 
-(function(){var c=document.querySelector('.cal[data-embed]');if(!c)return;
-var u=(c.getAttribute('data-embed')||'').trim();if(!/^https:\/\/calendar\.google\.com\//.test(u))return;
-var f=document.createElement('iframe');f.src=u;f.title='Book a discovery call';f.loading='lazy';
-c.insertBefore(f,c.firstChild);c.classList.add('has-embed');
-var t=c.querySelector('.cal-fallback span');if(t)t.textContent='Calendar not loading? ';})();
