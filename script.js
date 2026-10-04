@@ -28,7 +28,7 @@ next.addEventListener('click',function(){if(!stepOk(steps[i])){msg.textContent='
 back.addEventListener('click',function(){show(i-1)});
 f.addEventListener('input',sync);f.addEventListener('change',sync);
 f.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.tagName!=='TEXTAREA'){e.preventDefault();if(i<last)next.click()}});
-var map={'pre-construction-admin':'Document Control','bid-procurement':'RFI/Submittal Logs','schedule-compliance':'Schedule Look-aheads','budget-vendor':'Budget/Invoice Admin'};
+var map={'pre-construction-admin':'Document Control','bid-procurement':'RFI/Submittal Logs','schedule-compliance':'Schedule Look-aheads','budget-vendor':'Budget/Invoice Admin','cost-estimating':'Cost Estimating'};
 var sv=map[new URLSearchParams(location.search).get('service')];
 if(sv){var c=f.querySelector('input[value="'+sv+'"]');if(c)c.checked=true}
 f.addEventListener('submit',function(e){e.preventDefault();
