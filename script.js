@@ -40,3 +40,6 @@ f.parentNode.innerHTML='<h2>Thank you</h2><p>Your inquiry is in. A confirmation 
 }).catch(function(){sending=false;sync();msg.textContent='Something went wrong. Please try again or use the email link in the footer.'})});
 show(0)})();
 
+/* Parallax (--py) and eager calendar load on booking links */
+(function(){var r=document.documentElement,t=0;if(!matchMedia('(prefers-reduced-motion: reduce)').matches)addEventListener('scroll',function(){if(t)return;t=requestAnimationFrame(function(){r.style.setProperty('--py',Math.min(scrollY,900));t=0})},{passive:true});
+[].forEach.call(document.querySelectorAll('a[href$="#schedule"]'),function(a){a.addEventListener('click',function(){[].forEach.call(document.querySelectorAll('.calendar-frame iframe'),function(f){f.loading='eager'})})})})();
