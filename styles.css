@@ -527,3 +527,24 @@ html.cal-open{overflow:hidden}
 @media(max-width:420px){.cm-open{font-size:.8rem}}
 .band p{color:#fff}
 @media(max-width:420px){.card>.btn,.exp-card>.btn,.btn-fit{font-size:.92rem;padding:.75rem 1.1rem}}
+
+/* v9: ultra-wide containers, fluid grids, resume card, glass media, nav resume link */
+.wrap,.container,.content-wrapper,.section-inner{max-width:1440px;width:92%;margin-left:auto;margin-right:auto;box-sizing:border-box}
+@media(max-width:768px){.wrap{width:100%}}
+.grid,.exp-grid,.work-matrix,.stack{grid-template-columns:repeat(auto-fit,minmax(min(350px,100%),1fr))}
+.stack{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+.feature-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(350px,100%),1fr));gap:22px}
+@media(min-width:861px){.hero-grid{grid-template-columns:3fr 2fr;gap:clamp(40px,4vw,80px)}}
+@media(min-width:1441px){html{font-size:106%}}
+@media(min-width:1920px){html{font-size:112.5%}}
+@media(min-width:2560px){html{font-size:125%}}
+.media-card .media-frame,.reel-stage{border:1px solid rgba(191,87,0,.6);box-shadow:0 0 0 1px rgba(191,87,0,.18),0 18px 50px rgba(0,0,0,.35)}
+.media-glass,.reel-glass{-webkit-backdrop-filter:blur(12px) saturate(180%);backdrop-filter:blur(12px) saturate(180%)}
+.nav-resume{display:inline-flex;align-items:center;white-space:nowrap;padding:.45rem .9rem;border:1px solid #BF5700;border-radius:999px;font-weight:600;font-size:.9rem;color:#BF5700!important}
+.nav-resume:hover{background:#BF5700;color:#fff!important}
+nav .nav-links>a.nav-resume{order:2}
+.resume-preview-card{max-width:900px;margin-inline:auto;padding:clamp(22px,3vw,36px);border-radius:20px;border:1px solid var(--g-line,rgba(255,255,255,.14));border-top:3px solid #BF5700;background:var(--g-bg,rgba(255,255,255,.06));box-shadow:var(--g-shadow,0 12px 40px rgba(0,0,0,.3));-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%)}
+.resume-preview-card h2{margin:.2em 0 .1em}.rp-list{margin:1rem 0}
+.rp-badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 1.2rem}
+.rp-badges span{padding:.3rem .75rem;border-radius:999px;border:1px solid rgba(191,87,0,.55);font-size:.82rem;font-weight:600}
+@media(max-width:768px){nav .nav-links>a.nav-resume{order:0}}
