@@ -75,16 +75,48 @@ if(max>2&&t.scrollLeft>=max-4)idx=k.length-1;else{var best=1e9;for(var i=0;i<k.l
 for(var j=0;j<dots.length;j++)dots[j].classList.toggle('on',j===idx)}
 t.addEventListener('scroll',function(){if(!tick)tick=requestAnimationFrame(upd)},{passive:true});upd()})})();
 
-/* ===== v6: Google Calendar popup on home-page booking buttons ===== */
-(function(){[].forEach.call(document.querySelectorAll('[data-gcal]'),function(a){a.addEventListener('click',function(e){
-var h=document.getElementById('gcal-host'),b=h&&h.querySelector('button,[role="button"]');
-if(b){e.preventDefault();b.click()}})})})();
+/* ===== v8: calendar pop-up modal (site-wide) ===== */
+/* EMBED = the frameable Google appointment-schedule URL; OFFICIAL = the public booking link shown as the fallback and used if JS or <dialog> is unavailable */
+(function(){
+var OFFICIAL='https://calendar.app.google/cHL6Zv1SKNRtJRjU8',
+EMBED='https://calendar.google.com/calendar/appointments/schedules/AcZssZ3it_VkPKrxvsED4t0x5Pf07ydVxVqoLuqXjPIUukcu_rU-KY_zUWlemgOP_sPTm85hLgXLFMBo?gv=true';
+var SEL='a[href*="calendar.app.google"],[data-gcal],[data-cal-open]',dlg,opener;
+if(typeof HTMLDialogElement==='undefined')return;
+function build(){
+dlg=document.createElement('dialog');dlg.className='calendar-modal';dlg.setAttribute('aria-labelledby','cm-title');
+dlg.innerHTML='<div class="cm-head"><h3 id="cm-title">Book a discovery call</h3><a class="cm-open" href="'+OFFICIAL+'" target="_blank" rel="noopener">Open in new tab &#8599;</a><button type="button" class="cm-close" aria-label="Close booking calendar">&times;</button></div>'+
+'<div class="calendar-container has-embed"><div class="calendar-frame"><iframe title="Book a discovery call" width="100%" referrerpolicy="no-referrer-when-downgrade"></iframe></div>'+
+'<div class="calendar-fallback"><p class="cf-small">Calendar not loading? <a href="'+OFFICIAL+'" target="_blank" rel="noopener">Open the booking page</a>.</p></div></div>';
+document.body.appendChild(dlg);
+dlg.querySelector('.cm-close').addEventListener('click',function(){dlg.close()});
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+dlg.addEventListener('close',function(){document.documentElement.classList.remove('cal-open');if(opener&&opener.focus)opener.focus()})}
+document.addEventListener('click',function(e){
+var a=e.target.closest&&e.target.closest(SEL);
+if(!a||a.closest('.calendar-modal,.calendar-container')||e.defaultPrevented||e.button>0||e.metaKey||e.ctrlKey||e.shiftKey)return;
+e.preventDefault();opener=a;if(!dlg)build();
+var f=dlg.querySelector('iframe');if(!f.getAttribute('src'))f.setAttribute('src',EMBED);
+document.documentElement.classList.add('cal-open');
+if(!dlg.open)dlg.showModal();dlg.scrollTop=0});
+})();
 
-/* ===== v7: Excel preview dialog ===== */
-(function(){var d=document.getElementById('xl-dialog');if(!d)return;
-[].forEach.call(document.querySelectorAll('[data-xl-open]'),function(b){b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','')})});
-d.querySelector('[data-xl-close]').addEventListener('click',function(){d.close()});
-d.addEventListener('click',function(e){if(e.target===d)d.close()});
-[].forEach.call(d.querySelectorAll('[data-xl-tab]'),function(t){t.addEventListener('click',function(){var n=t.getAttribute('data-xl-tab');
-[].forEach.call(d.querySelectorAll('[data-xl-tab]'),function(x){x.setAttribute('aria-selected',String(x===t))});
-[].forEach.call(d.querySelectorAll('[data-xl-pane]'),function(p){p.hidden=p.getAttribute('data-xl-pane')!==n})})})})();
+/* ===== v8: showcase video (hero loop + workflow reel) ===== */
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches||(navigator.connection&&navigator.connection.saveData);
+[].forEach.call(document.querySelectorAll('[data-video]'),function(w){
+var v=w.querySelector('video');if(!v)return;
+var pb=w.querySelector('[data-v-play]'),mb=w.querySelector('[data-v-mute]'),bar=w.querySelector('.reel-bar'),fill=bar&&bar.firstElementChild,
+chs=[].slice.call(w.querySelectorAll('[data-t]')),userPaused=false;
+function ui(){if(pb){var p=v.paused;pb.classList.toggle('paused',p);pb.setAttribute('aria-label',p?'Play video':'Pause video')}
+if(mb){var on=!v.muted;mb.classList.toggle('on',on);mb.setAttribute('aria-label',on?'Mute video':'Turn sound on');mb.setAttribute('aria-pressed',String(on))}}
+function play(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+if(reduce){v.removeAttribute('autoplay');v.pause();userPaused=true}
+if(pb)pb.addEventListener('click',function(){if(v.paused){userPaused=false;play()}else{userPaused=true;v.pause()}});
+if(mb)mb.addEventListener('click',function(){v.muted=!v.muted;ui()});
+v.addEventListener('play',ui);v.addEventListener('pause',ui);v.addEventListener('volumechange',ui);
+if(fill){v.addEventListener('timeupdate',function(){var d=v.duration||1;fill.style.width=(v.currentTime/d*100)+'%';
+if(chs.length){var t=v.currentTime,k=0;chs.forEach(function(c,i){if(t>=parseFloat(c.getAttribute('data-t')))k=i});chs.forEach(function(c,i){c.classList.toggle('on',i===k)})}});
+bar.addEventListener('click',function(e){var r=bar.getBoundingClientRect();v.currentTime=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width))*(v.duration||0)})}
+chs.forEach(function(c){c.addEventListener('click',function(){v.currentTime=parseFloat(c.getAttribute('data-t'));userPaused=false;play()})});
+if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){if(!userPaused&&v.paused)play()}else if(!v.paused)v.pause()})},{threshold:.2}).observe(w);
+ui()})})();
