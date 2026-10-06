@@ -645,3 +645,45 @@ html.fr-ready .fr-row.in:hover .fr-body{transform:translateY(-8px);transition-de
 html.fr-ready .fr-media{transform:translateY(24px)}
 }
 @media(prefers-reduced-motion:reduce){.fr-media img,.fr-body,.fr-link span{transition:none!important}.fr-row:hover .fr-media img,.fr-row:hover .fr-body{transform:none}}
+
+/* v15: exact full-viewport hero + clean hand-off to Track Record */
+:root{--header-h:69px}
+@media(max-width:900px){:root{--header-h:61px}}
+.hero-section,.hero{
+  box-sizing:border-box;position:relative;overflow:hidden;
+  width:100%;margin:0;
+  /* sticky header sits above the hero, so subtract it: hero bottom lands exactly on the fold */
+  min-height:calc(100vh - var(--header-h));
+  min-height:calc(100dvh - var(--header-h));
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:clamp(24px,5vh,72px) 0;
+}
+.hero-section>.wrap,.hero>.wrap{width:min(100% - 48px,1440px);max-width:1440px;margin:auto 0}
+.hero-container,.hero .hero-grid{
+  width:100%;margin:auto 0;
+  display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr); /* 60/40 split */
+  align-items:center;gap:clamp(24px,4vw,80px);position:relative;z-index:2;
+}
+.hero-container>*{min-width:0}
+/* keep the video card inside the viewport height on short laptop screens */
+.hero-media .media-frame video{max-height:min(56dvh,560px);width:100%;object-fit:cover}
+@media(max-width:1024px){
+  .hero-container,.hero .hero-grid{grid-template-columns:1fr;text-align:center;gap:1.5rem}
+  .hero-copy .lede{margin-inline:auto}
+  .hero-copy .cta{justify-content:center}
+  .hero-copy .avail-panel{margin-inline:auto;text-align:left}
+  .hero-media{width:min(100%,520px);margin-inline:auto}
+  .hero-media .media-frame video{max-height:40dvh}
+}
+@media(max-height:560px) and (orientation:landscape){.hero-media .media-frame video{max-height:70dvh}}
+/* ultra-wide / 4K: let the type breathe, content stays centred */
+@media(min-width:2200px){
+  .hero h1{font-size:clamp(3rem,2.2vw,4.4rem)}
+  .hero .lede{font-size:clamp(1.25rem,1vw,1.6rem);max-width:60ch}
+}
+/* hand-off: no slide-up offset on the two sections that meet at the fold, so no gap and no peek */
+.track-record-section,.photo-track{margin-top:0}
+.js .hero-section.reveal-section,.js .track-record-section.reveal-section{transform:none}
+.js .hero-section.reveal-section.in-view,.js .track-record-section.reveal-section.in-view{animation:v15Fade .8s ease backwards}
+@keyframes v15Fade{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.js .hero-section.reveal-section.in-view,.js .track-record-section.reveal-section.in-view{animation:none}}
