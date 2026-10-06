@@ -540,8 +540,7 @@ html.cal-open{overflow:hidden}
 @media(min-width:2560px){html{font-size:125%}}
 .media-card .media-frame,.reel-stage{border:1px solid rgba(191,87,0,.6);box-shadow:0 0 0 1px rgba(191,87,0,.18),0 18px 50px rgba(0,0,0,.35)}
 .media-glass,.reel-glass{-webkit-backdrop-filter:blur(12px) saturate(180%);backdrop-filter:blur(12px) saturate(180%)}
-.nav-resume{display:inline-flex;align-items:center;white-space:nowrap;padding:.45rem .9rem;border:1px solid #BF5700;border-radius:999px;font-weight:600;font-size:.9rem;color:#BF5700!important}
-.nav-resume:hover{background:#BF5700;color:#fff!important}
+/* v16: pill styling for the Resume link removed; see v16 block at end of file */
 nav .nav-links>a.nav-resume{order:2}
 .resume-preview-card{max-width:900px;margin-inline:auto;padding:clamp(22px,3vw,36px);border-radius:20px;border:1px solid var(--g-line,rgba(255,255,255,.14));border-top:3px solid #BF5700;background:var(--g-bg,rgba(255,255,255,.06));box-shadow:var(--g-shadow,0 12px 40px rgba(0,0,0,.3));-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%)}
 .resume-preview-card h2{margin:.2em 0 .1em}.rp-list{margin:1rem 0}
@@ -687,3 +686,21 @@ html.fr-ready .fr-media{transform:translateY(24px)}
 .js .hero-section.reveal-section.in-view,.js .track-record-section.reveal-section.in-view{animation:v15Fade .8s ease backwards}
 @keyframes v15Fade{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.js .hero-section.reveal-section.in-view,.js .track-record-section.reveal-section.in-view{animation:none}}
+
+/* v16: unified nav links (Resume matches Home/About/Work/Services/Contact) */
+nav a.nav-link{color:#FFFFFF;font-weight:500;font-size:.95rem;padding:4px 0;border:0;border-radius:0;background-color:transparent;white-space:nowrap}
+[data-theme="light"] nav a.nav-link{color:#111827!important}
+/* hover / current page: centre-out burnt-orange underline (same effect as .link-expand) */
+nav a.nav-link{background-image:linear-gradient(#BF5700,#BF5700);background-repeat:no-repeat;background-position:center bottom;background-size:0 2px;transition:background-size .35s ease,color .3s ease}
+nav a.nav-link:hover,nav a.nav-link:focus-visible,nav a.nav-link[aria-current]{background-size:100% 2px}
+[data-theme="light"] nav a.nav-link:hover,[data-theme="light"] nav a.nav-link[aria-current]{color:#BF5700!important}
+nav a.nav-link:focus-visible{outline:2px solid #F0842C;outline-offset:4px;border-radius:2px}
+@media(max-width:768px){
+  nav .nav-links>a.nav-link{background-size:0 0;font-size:1.02rem;padding:15px 2px}
+  [data-theme="light"] nav .nav-links>a.nav-link[aria-current]{color:#A34700!important}
+}
+/* optional: glass outline button. Opt in by adding class="btn-nav-outline" to the Resume link */
+nav a.nav-link.btn-nav-outline{padding:.5rem 1rem;border-radius:8px;border:1px solid rgba(191,87,0,.5);color:#FFFFFF!important;background:rgba(255,255,255,.05);background-image:none;font-weight:500;transition:all .3s ease}
+nav a.nav-link.btn-nav-outline:hover{background:#BF5700;border-color:#BF5700;color:#FFFFFF!important;box-shadow:0 4px 14px rgba(191,87,0,.3)}
+[data-theme="light"] nav a.nav-link.btn-nav-outline{color:#111827!important;border-color:rgba(191,87,0,.4);background:rgba(0,0,0,.03)}
+[data-theme="light"] nav a.nav-link.btn-nav-outline:hover{color:#FFFFFF!important;background:#BF5700}
