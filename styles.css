@@ -550,19 +550,6 @@ nav .nav-links>a.nav-resume{order:2}
 @media(max-width:768px){nav .nav-links>a.nav-resume{order:0}}
 
 /* v10: card imagery, staggered services grid, availability panel, hero cleanup */
-.has-bg{isolation:isolate;overflow:hidden}
-.has-bg::before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;border-radius:inherit;z-index:-1;background:linear-gradient(180deg,rgba(10,12,18,.74) 0%,rgba(10,12,18,.92) 100%),linear-gradient(135deg,rgba(191,87,0,.30),transparent 62%),var(--bgimg) center/cover no-repeat;transition:transform .6s ease}
-.has-bg:hover::before{transform:scale(1.05)}
-.has-bg::after{content:"";position:absolute;left:28px;top:0;width:44px;height:3px;background:var(--accent,#BF5700);border-radius:0 0 3px 3px;z-index:1}
-[data-theme="light"] .has-bg::before{background:linear-gradient(180deg,rgba(255,255,255,.86) 0%,rgba(255,255,255,.95) 100%),linear-gradient(135deg,rgba(191,87,0,.14),transparent 62%),var(--bgimg) center/cover no-repeat}
-.bg-university{--bgimg:url(assets/cards/university.jpg)}
-.bg-safety{--bgimg:url(assets/cards/public-safety.jpg)}
-.bg-industrial{--bgimg:url(assets/cards/industrial.jpg)}
-.bg-transit{--bgimg:url(assets/cards/transit.jpg)}
-.bg-planning{--bgimg:url(assets/cards/planning-desk.jpg)}
-.bg-pm{--bgimg:url(assets/cards/pm-workspace.jpg)}
-.bg-site{--bgimg:url(assets/cards/site-logistics.jpg)}
-.bg-alt::before{background-position:left bottom}.bg-low::before{background-position:center bottom}
 .plate-grid{counter-reset:plate}
 .plate-grid>.card{counter-increment:plate}
 .plate-grid>.card h3::before{content:"0" counter(plate);display:block;margin-bottom:.35rem;font:700 .8rem Inter,system-ui,sans-serif;letter-spacing:.14em;color:#BF5700}
@@ -582,3 +569,25 @@ nav .nav-links>a.nav-resume{order:2}
 .avail-section{padding:0 0 40px}.avail-section .avail-panel{margin:0 auto;max-width:720px}
 .hero{padding-bottom:clamp(56px,7vw,96px)}
 .focal{position:relative;z-index:1}
+
+
+/* v12: full-bleed section photography (cards stay clean glass), ultra-wide containers, forced-white calendar */
+section.section-photo{position:relative;isolation:isolate;background:var(--sec-img) center/cover no-repeat fixed;color:#F3F4F6}
+section.section-photo::before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1;background:var(--sec-overlay,rgba(15,23,42,.85))}
+section.section-photo .wrap>h1,section.section-photo .wrap>h2,section.section-photo .wrap>.intro,section.section-photo .wrap>p:not(.meta){color:#F3F4F6}
+section.section-photo .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#F3F4F6;-webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+section.section-photo .card h3,section.section-photo .card b{color:#fff}
+section.section-photo .card p,section.section-photo .card li,section.section-photo .card .meta{color:#D9DDE5}
+section.section-photo .card a.more,section.section-photo .card .link-expand{color:#F0842C}
+.photo-dcn{--sec-img:url(assets/bg/dcn-highrise.jpg);--sec-overlay:rgba(15,23,42,.85)}
+.photo-civic{--sec-img:url(assets/bg/civic-education.jpg);--sec-overlay:rgba(15,23,42,.82)}
+@media(max-width:1024px),(hover:none){section.section-photo{background-attachment:scroll}}
+@media(prefers-reduced-motion:reduce){section.section-photo{background-attachment:scroll}}
+.wrap,.container,.content-wrapper,.section-inner{width:min(100% - 48px,1440px);max-width:1440px}
+@media(max-width:600px){.wrap,.container,.content-wrapper,.section-inner{width:min(100% - 32px,1440px)}}
+.calendar-modal,.calendar-modal .calendar-container,.calendar-modal .calendar-frame,.calendar-modal .calendar-fallback{background:#FFFFFF!important;color:#111827!important;color-scheme:light}
+/* v12b: photo-section cards stay dark glass in both themes */
+section.section-photo .card,[data-theme="light"] section.section-photo .card,section.section-photo .card.g{background:rgba(15,23,42,.5)!important;border-color:rgba(255,255,255,.16)!important}
+section.section-photo .card h3,section.section-photo .card b,[data-theme="light"] section.section-photo .card h3{color:#fff!important}
+section.section-photo .card p,section.section-photo .card li,section.section-photo .card .meta,[data-theme="light"] section.section-photo .card p,[data-theme="light"] section.section-photo .card li{color:#E3E7EE!important}
+section.section-photo .card .ticks li::before{color:#F0842C}
