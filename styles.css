@@ -578,8 +578,8 @@ section.section-photo .card{background:rgba(255,255,255,.07);border:1px solid rg
 section.section-photo .card h3,section.section-photo .card b{color:#fff}
 section.section-photo .card p,section.section-photo .card li,section.section-photo .card .meta{color:#D9DDE5}
 section.section-photo .card a.more,section.section-photo .card .link-expand{color:#F0842C}
-.photo-dcn{--sec-img:url(assets/bg/dcn-highrise.jpg);--sec-overlay:rgba(15,23,42,.85)}
-.photo-civic{--sec-img:url(assets/bg/civic-education.jpg);--sec-overlay:rgba(15,23,42,.82)}
+.photo-dcn{--sec-img:url(assets/dcn-highrise.jpg);--sec-overlay:rgba(15,23,42,.85)}
+.photo-civic{--sec-img:url(assets/bg/civic-public-safety.jpg);--sec-overlay:rgba(15,23,42,.82)}
 @media(max-width:1024px),(hover:none){section.section-photo{background-attachment:scroll}}
 @media(prefers-reduced-motion:reduce){section.section-photo{background-attachment:scroll}}
 .wrap,.container,.content-wrapper,.section-inner{width:min(100% - 48px,1440px);max-width:1440px}
@@ -704,3 +704,36 @@ nav a.nav-link.btn-nav-outline{padding:.5rem 1rem;border-radius:8px;border:1px s
 nav a.nav-link.btn-nav-outline:hover{background:#BF5700;border-color:#BF5700;color:#FFFFFF!important;box-shadow:0 4px 14px rgba(191,87,0,.3)}
 [data-theme="light"] nav a.nav-link.btn-nav-outline{color:#111827!important;border-color:rgba(191,87,0,.4);background:rgba(0,0,0,.03)}
 [data-theme="light"] nav a.nav-link.btn-nav-outline:hover{color:#FFFFFF!important;background:#BF5700}
+
+/* v17: positioning rewrite, service packages, section photos, calendar 1200px */
+/* each photo is used exactly once site-wide */
+.photo-services{--sec-img:url(assets/home/card-construction-tracking.jpg);--sec-overlay:linear-gradient(180deg,rgba(15,23,42,.82),rgba(15,23,42,.9));background-position:center 45%}
+.photo-school{--sec-img:url(assets/bg/civic-education.jpg);--sec-overlay:linear-gradient(180deg,rgba(15,23,42,.8),rgba(15,23,42,.9));background-position:center 35%}
+.photo-dcnx{--sec-img:url(assets/bg/dcn-site-logistics.jpg);--sec-overlay:linear-gradient(90deg,rgba(11,15,23,.9),rgba(11,15,23,.72));background-position:center 40%}
+/* readable text on any photo section, both themes */
+section.section-photo :is(h1,h2,.lede,.intro,.meta,.sec p,.sec li,.ticks li,.scope div){color:#F3F4F6!important}
+section.section-photo .meta b{color:#fff!important}
+section.section-photo .scope div{background:rgba(15,23,42,.5);border-color:rgba(255,255,255,.18)}
+section.section-photo .btn.ghost{color:#fff;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.06)}
+/* three-up package cards */
+.packages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);align-items:stretch;margin-top:clamp(24px,4vw,44px)}
+.packages .card{display:flex;flex-direction:column;border-left:4px solid #BF5700;border-radius:6px 14px 14px 6px;margin:0}
+.packages .card .more{margin-top:auto;padding-top:14px;align-self:flex-start}
+.packages .meta a{color:#F0842C!important}
+@media(max-width:1100px){.packages{grid-template-columns:1fr}}
+/* copy + video split (DCN page) */
+.split-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(24px,4vw,72px);align-items:center}
+@media(max-width:1024px){.split-grid{grid-template-columns:1fr}.dcn-reel{width:min(100%,520px);margin-inline:auto}}
+.dcn-reel .media-frame video{width:100%;max-height:min(56dvh,560px);object-fit:cover}
+/* embedded calendar: forced light canvas, 1200px wide, 720px tall in both themes */
+.calendar-container,[data-theme="dark"] .calendar-container,[data-theme="light"] .calendar-container{width:100%;max-width:1200px;min-height:720px;background:#FFFFFF!important;color:#111827!important}
+.calendar-container .calendar-frame,[data-theme="dark"] .calendar-container .calendar-frame{min-height:720px}
+.calendar-container iframe,[data-theme="dark"] .calendar-container iframe{min-height:720px;background:#FFFFFF;color-scheme:light}
+.calendar-modal,[data-theme="dark"] .calendar-modal,[data-theme="light"] .calendar-modal{max-width:min(1200px,100vw)}
+.calendar-modal .calendar-container,[data-theme="dark"] .calendar-modal .calendar-container,[data-theme="light"] .calendar-modal .calendar-container{max-width:none;min-height:720px}
+.calendar-modal .calendar-frame,.calendar-modal iframe{min-height:720px}
+
+/* v18: DCN section uses the glass high-rise photo (assets/dcn-highrise.jpg) */
+.photo-dcn{--sec-overlay:linear-gradient(180deg,rgba(11,15,23,.72),rgba(11,15,23,.86)),linear-gradient(135deg,rgba(191,87,0,.22),transparent 60%);background-size:cover;background-position:center 55%}
+/* frosted glass card over the photo, identical in dark and light mode */
+.photo-dcn .exp-card,[data-theme="light"] .photo-dcn .exp-card{border-radius:20px;background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.22)!important;-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);box-shadow:0 16px 48px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.18)}
