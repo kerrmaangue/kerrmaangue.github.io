@@ -120,3 +120,10 @@ bar.addEventListener('click',function(e){var r=bar.getBoundingClientRect();v.cur
 chs.forEach(function(c){c.addEventListener('click',function(){v.currentTime=parseFloat(c.getAttribute('data-t'));userPaused=false;play()})});
 if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){if(!userPaused&&v.paused)play()}else if(!v.paused)v.pause()})},{threshold:.2}).observe(w);
 ui()})})();
+
+/* ===== v14: feature rows scroll reveal ===== */
+(function(){var rows=[].slice.call(document.querySelectorAll('.fr-row'));if(!rows.length)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)){rows.forEach(function(r){r.classList.add('in')});return}
+document.documentElement.classList.add('fr-ready');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.18,rootMargin:'0px 0px -6% 0px'});
+rows.forEach(function(r){io.observe(r)})})();
