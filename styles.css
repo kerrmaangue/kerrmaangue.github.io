@@ -737,3 +737,11 @@ section.section-photo .btn.ghost{color:#fff;border-color:rgba(255,255,255,.55);b
 .photo-dcn{--sec-overlay:linear-gradient(180deg,rgba(11,15,23,.72),rgba(11,15,23,.86)),linear-gradient(135deg,rgba(191,87,0,.22),transparent 60%);background-size:cover;background-position:center 55%}
 /* frosted glass card over the photo, identical in dark and light mode */
 .photo-dcn .exp-card,[data-theme="light"] .photo-dcn .exp-card{border-radius:20px;background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.22)!important;-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);box-shadow:0 16px 48px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.18)}
+
+/* v19: scheduler container stays white (#FFFFFF / #111827) in both themes, incl. the official Google button area */
+.calendar-container .calendar-fallback,[data-theme="dark"] .calendar-container .calendar-fallback,[data-theme="light"] .calendar-container .calendar-fallback{background:#FFFFFF!important;color:#111827!important;text-align:center;padding:14px 16px 18px}
+.calendar-container .calendar-fallback .cf-small,.calendar-container .calendar-fallback a{color:#111827!important}
+.calendar-container .calendar-fallback a{text-decoration:underline}
+/* two experience cards (DCN + freelance) sit side by side on wide screens */
+@media(min-width:1000px){.exp-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}}
+.exp-card .btn{margin-top:14px}

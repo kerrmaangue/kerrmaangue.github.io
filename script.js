@@ -78,9 +78,9 @@ t.addEventListener('scroll',function(){if(!tick)tick=requestAnimationFrame(upd)}
 /* ===== v8: calendar pop-up modal (site-wide) ===== */
 /* EMBED = the frameable Google appointment-schedule URL; OFFICIAL = the public booking link shown as the fallback and used if JS or <dialog> is unavailable */
 (function(){
-var OFFICIAL='https://calendar.app.google/cHL6Zv1SKNRtJRjU8',
-EMBED='https://calendar.google.com/calendar/appointments/schedules/AcZssZ3it_VkPKrxvsED4t0x5Pf07ydVxVqoLuqXjPIUukcu_rU-KY_zUWlemgOP_sPTm85hLgXLFMBo?gv=true';
-var SEL='a[href*="calendar.app.google"],[data-gcal],[data-cal-open]',dlg,opener;
+var OFFICIAL='https://calendar.google.com/calendar/appointments/schedules/AcZssZ0R7e9bEZQBKGwibB-TA2SWhPY16qDOVbvIdM0oYaYrLKdC_HWUvAiIFNtdsRCpkkbNfFTyvWqR?gv=true',
+EMBED='https://calendar.google.com/calendar/appointments/schedules/AcZssZ0R7e9bEZQBKGwibB-TA2SWhPY16qDOVbvIdM0oYaYrLKdC_HWUvAiIFNtdsRCpkkbNfFTyvWqR?gv=true';
+var SEL='a[href*="calendar.app.google"],a[href*="calendar.google.com/calendar/appointments"],[data-gcal],[data-cal-open]',dlg,opener;
 if(typeof HTMLDialogElement==='undefined')return;
 function build(){
 dlg=document.createElement('dialog');dlg.className='calendar-modal';dlg.setAttribute('aria-labelledby','cm-title');
