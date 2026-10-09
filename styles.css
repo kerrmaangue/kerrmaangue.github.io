@@ -592,7 +592,7 @@ section.section-photo .card p,section.section-photo .card li,section.section-pho
 section.section-photo .card .ticks li::before{color:#F0842C}
 
 /* v13: homepage photography — hero background, card header photos, track-record backdrop */
-.hero-photo{--sec-img:url(assets/home/hero-civic-dusk.jpg);--sec-overlay:linear-gradient(90deg,rgba(11,15,23,.90) 0%,rgba(11,15,23,.74) 55%,rgba(11,15,23,.52) 100%),linear-gradient(135deg,rgba(191,87,0,.30),transparent 62%);background-position:center 35%}
+.hero-photo{background-position:center}
 .hero-photo h1,.hero-photo .lede,.hero-photo .meta,.hero-photo .avail-panel b,.hero-photo .avail-panel small{color:#F3F4F6!important}
 .hero-photo .hl{color:#F0842C!important}
 .hero-photo .badge{color:#F3F4F6;background:rgba(255,255,255,.08);border-color:rgba(240,132,44,.6)}
@@ -816,10 +816,25 @@ section.section-photo .cs-glass .ticks li::before{color:#F0842C}
 [data-theme="light"] .dcn-hero-showcase .glass-container-overlay{background:rgba(248,249,250,.88);border:1px solid rgba(0,0,0,.08)}
 .dcn-hero-showcase .dcn-block{max-width:1120px;margin:0 auto}
 .dcn-hero-showcase .dcn-block+.dcn-block{margin-top:4rem}
-.dcn-hero-showcase .contact-lines{margin-top:1.4rem}
 /* dark overlay is used in dark mode, so keep text light there; light mode keeps theme text */
 [data-theme="dark"] .dcn-hero-showcase :is(h1,h2,h3,.meta b){color:#F3F4F6}
 [data-theme="dark"] .dcn-hero-showcase :is(p,li,.meta,.intro){color:#D9DDE5}
 @media(max-width:1024px),(hover:none),(prefers-reduced-motion:reduce){.dcn-hero-showcase{background-attachment:scroll}}
 @media(max-width:640px){.dcn-hero-showcase{padding:48px 12px}.dcn-hero-showcase .glass-container-overlay{padding:2rem 1.1rem;border-radius:16px}}
-.dcn-hero-showcase .contact-lines p{max-width:none}
+
+/* v23: animated mesh-gradient hero (Burnt Orange to Slate/Navy); the old hero photo now lives behind Project highlights */
+.hero-section{
+  position:relative;width:100%;
+  min-height:100vh;min-height:100dvh;
+  overflow:hidden;
+  background:linear-gradient(-45deg,#0B0F17,#BF5700,#1E293B,#8B3A00,#0F172A);
+  background-size:400% 400%;
+  animation:gradientFlow 15s ease infinite;
+}
+@keyframes gradientFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@media(prefers-reduced-motion:reduce){.hero-section{animation:none;background-position:0% 50%}}
+
+/* Project highlights: full-bleed photo with glass cards */
+section.section-photo.photo-featured{background-image:var(--sec-img);background-size:cover;background-position:center 35%;background-repeat:no-repeat;background-attachment:fixed;--sec-img:url(assets/home/hero-civic-dusk.jpg);--sec-overlay:linear-gradient(180deg,rgba(11,15,23,.78),rgba(11,15,23,.88))}
+section.section-photo.photo-featured .card{-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%)}
+@media(max-width:1024px),(hover:none),(prefers-reduced-motion:reduce){section.section-photo.photo-featured{background-attachment:scroll}}
