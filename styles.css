@@ -912,3 +912,18 @@ section.section-photo.photo-featured .card{-webkit-backdrop-filter:blur(12px) sa
 @media (max-width: 1100px), (max-height: 680px) {
   .hero-section { height: auto; }
 }
+
+/* v25: executive contact card (contact page) */
+.contact-card{max-width:760px;margin:1.6rem 0 2.2rem;padding:26px 28px 28px;border-radius:18px;border:1px solid var(--g-line,var(--line));border-left:3px solid #BF5700;background:var(--g-bg,var(--card));-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);box-shadow:var(--shadow)}
+.contact-rows{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:16px}
+.contact-rows li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:center}
+.contact-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(191,87,0,.14);border:1px solid rgba(191,87,0,.45);color:var(--accent-text,#F0842C)}
+.contact-ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.contact-rows b{display:block;margin-bottom:2px;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.contact-rows .cv{font-size:1.08rem;color:var(--text);overflow-wrap:anywhere}
+.contact-rows a.cv{text-decoration:underline;text-decoration-color:#BF5700;text-underline-offset:4px}
+.contact-rows a.cv:hover{color:var(--accent-text,#F0842C)}
+.contact-card .contact-actions{padding-top:20px;border-top:1px solid var(--g-line,var(--line))}
+@media(max-width:640px){.contact-card{padding:20px 18px 22px}.contact-actions .btn{flex:1 1 100%;text-align:center}}
+.offset>.grid>.contact-card{grid-column:1/-1;max-width:none;margin:0}
+.offset>.grid>.contact-card+.card{grid-column:1/-1;margin-top:0}
