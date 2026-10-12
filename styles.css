@@ -822,19 +822,93 @@ section.section-photo .cs-glass .ticks li::before{color:#F0842C}
 @media(max-width:1024px),(hover:none),(prefers-reduced-motion:reduce){.dcn-hero-showcase{background-attachment:scroll}}
 @media(max-width:640px){.dcn-hero-showcase{padding:48px 12px}.dcn-hero-showcase .glass-container-overlay{padding:2rem 1.1rem;border-radius:16px}}
 
-/* v23: animated mesh-gradient hero (Burnt Orange to Slate/Navy); the old hero photo now lives behind Project highlights */
-.hero-section{
-  position:relative;width:100%;
-  min-height:100vh;min-height:100dvh;
-  overflow:hidden;
-  background:linear-gradient(-45deg,#0B0F17,#BF5700,#1E293B,#8B3A00,#0F172A);
-  background-size:400% 400%;
-  animation:gradientFlow 15s ease infinite;
-}
-@keyframes gradientFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-@media(prefers-reduced-motion:reduce){.hero-section{animation:none;background-position:0% 50%}}
-
 /* Project highlights: full-bleed photo with glass cards */
 section.section-photo.photo-featured{background-image:var(--sec-img);background-size:cover;background-position:center 35%;background-repeat:no-repeat;background-attachment:fixed;--sec-img:url(assets/home/hero-civic-dusk.jpg);--sec-overlay:linear-gradient(180deg,rgba(11,15,23,.78),rgba(11,15,23,.88))}
 section.section-photo.photo-featured .card{-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%)}
 @media(max-width:1024px),(hover:none),(prefers-reduced-motion:reduce){section.section-photo.photo-featured{background-attachment:scroll}}
+
+/* ==========================================================================
+   v24: EXECUTIVE HERO (OBSIDIAN & BURNT GOLD MESH)
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh; /* Exact 100% viewport height lock */
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Rich obsidian canvas fallback */
+  background-color: #07090E;
+
+  /* Multi-layered ambient radial lights: burnt orange, champagne gold, deep obsidian slate */
+  background-image:
+    radial-gradient(at 15% 15%, rgba(191, 87, 0, 0.28) 0px, transparent 55%),
+    radial-gradient(at 85% 20%, rgba(212, 143, 56, 0.18) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(18, 24, 38, 0.85) 0px, transparent 65%),
+    radial-gradient(at 80% 85%, rgba(191, 87, 0, 0.15) 0px, transparent 45%),
+    radial-gradient(at 10% 85%, rgba(11, 15, 23, 0.95) 0px, transparent 50%),
+    linear-gradient(135deg, #07090E 0%, #0E131F 45%, #171E2E 70%, #07090E 100%);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  animation: luxuryMeshFlow 18s ease-in-out infinite alternate;
+  will-change: background-position;
+}
+
+/* Dot-matrix glass canvas texture (replaces the older grid-line overlay on the hero) */
+.hero-section::before,
+[data-theme="light"] .hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-repeat: repeat;
+  -webkit-mask-image: none;
+  mask-image: none;
+  transform: none;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Soft floating light beam (resets the older small accent line that shared this pseudo-element) */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: 20%;
+  right: auto;
+  width: 60%;
+  height: 160%;
+  background: radial-gradient(ellipse at center, rgba(191, 87, 0, 0.12) 0%, rgba(7, 9, 14, 0) 70%);
+  transform: rotate(-15deg);
+  animation: none;
+  pointer-events: none;
+  filter: blur(60px);
+  z-index: 1;
+  display: block;
+}
+
+@keyframes luxuryMeshFlow {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* Content sits above the lighting effects */
+.hero-container { position: relative; z-index: 2; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section { animation: none; will-change: auto; }
+}
+
+/* Safety valve: the 100vh/100dvh lock stays on desktop. On tablets, phones and short windows the hero content is taller than
+   the screen, and overflow:hidden would cut it off, so height is released there. min-height keeps the background full-screen. */
+@media (max-width: 1100px), (max-height: 680px) {
+  .hero-section { height: auto; }
+}
