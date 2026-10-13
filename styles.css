@@ -579,7 +579,7 @@ section.section-photo .card h3,section.section-photo .card b{color:#fff}
 section.section-photo .card p,section.section-photo .card li,section.section-photo .card .meta{color:#D9DDE5}
 section.section-photo .card a.more,section.section-photo .card .link-expand{color:#F0842C}
 .photo-dcn{--sec-img:url(assets/dcn-highrise.jpg);--sec-overlay:rgba(15,23,42,.85)}
-.photo-civic{--sec-img:url(assets/bg/civic-public-safety.jpg);--sec-overlay:rgba(15,23,42,.82)}
+.photo-civic{--sec-img:linear-gradient(135deg,#0A0D14 0%,#111726 60%,#1B1008 100%);--sec-overlay:transparent}
 @media(max-width:1024px),(hover:none){section.section-photo{background-attachment:scroll}}
 @media(prefers-reduced-motion:reduce){section.section-photo{background-attachment:scroll}}
 .wrap,.container,.content-wrapper,.section-inner{width:min(100% - 48px,1440px);max-width:1440px}
@@ -927,3 +927,116 @@ section.section-photo.photo-featured .card{-webkit-backdrop-filter:blur(12px) sa
 @media(max-width:640px){.contact-card{padding:20px 18px 22px}.contact-actions .btn{flex:1 1 100%;text-align:center}}
 .offset>.grid>.contact-card{grid-column:1/-1;max-width:none;margin:0}
 .offset>.grid>.contact-card+.card{grid-column:1/-1;margin-top:0}
+
+/* ==========================================================================
+   v26: OBSIDIAN STUDIO DESIGN SYSTEM
+   palette: canvas #0A0D14, cards #111726, hairline rgba(255,255,255,.08), accent #BF5700,
+   white headings, slate #94A3B8 subtext, monospace sub-badges
+   ========================================================================== */
+:root{--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+[data-theme="dark"]{
+  --bg:#0A0D14;--card:#111726;--surface:#111726;--text:#FFFFFF;--body:#94A3B8;--muted:#94A3B8;
+  --line:rgba(255,255,255,.08);--nav:rgba(17,23,38,.6);--glow:rgba(191,87,0,.16);--surface-a:rgba(17,23,38,.5);
+  --g-bg:#111726;--g-line:rgba(255,255,255,.08);--g-shadow:0 10px 30px -14px rgba(0,0,0,.7);--g-ring:rgba(255,255,255,0);
+  --glass:rgba(17,23,38,.6);--glass-line:rgba(255,255,255,.08);--accent-text:#F0842C;--shadow:0 10px 30px -14px rgba(0,0,0,.7)}
+[data-theme="dark"] body{background:#0A0D14}
+[data-theme="dark"] :is(h1,h2,h3){color:#FFFFFF}
+html{scroll-padding-top:96px}
+
+/* ---- floating glass pill navigation (sits over the page top, content starts underneath) ---- */
+html[data-theme] header.site{position:sticky;top:14px;z-index:50;width:min(1120px,calc(100% - 32px));margin:14px auto -74px;
+  border:1px solid var(--g-line);border-radius:999px;
+  background:rgba(17,23,38,.6);-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);
+  box-shadow:0 14px 40px -14px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.06)}
+html[data-theme="light"] header.site{background:rgba(255,255,255,.72);border-color:rgba(15,23,42,.08);box-shadow:0 14px 36px -16px rgba(15,23,42,.25)}
+html[data-theme] header.site .wrap{max-width:none;min-height:58px;padding:0 12px 0 26px}
+[data-theme="dark"] nav a.nav-link{color:#E2E8F0}
+[data-theme="dark"] nav a.nav-link:hover{color:#fff}
+[data-theme="dark"] nav a.nav-link[aria-current]{color:#F0842C;text-shadow:0 0 16px rgba(191,87,0,.65)}
+nav a.nav-link[aria-current]{background-size:100% 2px;filter:drop-shadow(0 2px 6px rgba(191,87,0,.5))}
+html[data-theme] nav a.nav-cta{border-radius:999px;padding:9px 20px;box-shadow:0 6px 20px rgba(191,87,0,.4)}
+html[data-theme] #theme-toggle{background:rgba(255,255,255,.05);border-color:var(--g-line)}
+@media(max-width:767px){
+  html[data-theme] header.site{top:10px;width:calc(100% - 20px);margin:10px auto -62px;border-radius:26px}
+  html[data-theme] header.site .wrap{min-height:50px;padding:0 10px 0 18px}
+  html[data-theme] nav .nav-links{top:calc(100% + 14px);border:1px solid var(--g-line);border-radius:22px;background:rgba(10,13,20,.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+  html[data-theme="light"] nav .nav-links{background:rgba(255,255,255,.97)}
+}
+
+/* ---- hero: layered obsidian mesh on the new canvas colour ---- */
+.hero-section{background-color:#0A0D14;
+  background-image:
+    radial-gradient(at 15% 15%,rgba(191,87,0,.30) 0,transparent 55%),
+    radial-gradient(at 85% 20%,rgba(212,143,56,.18) 0,transparent 50%),
+    radial-gradient(at 50% 80%,rgba(17,23,38,.9) 0,transparent 65%),
+    radial-gradient(at 80% 85%,rgba(191,87,0,.16) 0,transparent 45%),
+    radial-gradient(at 10% 85%,rgba(10,13,20,.95) 0,transparent 50%),
+    linear-gradient(135deg,#0A0D14 0%,#0E1422 45%,#111726 70%,#0A0D14 100%)}
+.hero-section .btn.primary{box-shadow:0 10px 34px rgba(191,87,0,.45)}
+.hero-section .btn.ghost{background:rgba(255,255,255,.05)!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.2)!important;color:#fff!important}
+.hero-section .btn.ghost:hover{border-color:#BF5700!important;background:rgba(191,87,0,.18)!important;box-shadow:0 0 26px rgba(191,87,0,.3)}
+
+/* ---- buttons ---- */
+html[data-theme] .btn{border-radius:12px}
+html[data-theme="dark"] .btn.primary{box-shadow:0 8px 28px rgba(191,87,0,.38)}
+html[data-theme="dark"] .btn.ghost{background:rgba(255,255,255,.04);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16);color:#fff}
+html[data-theme="dark"] .btn.ghost:hover{border-color:#BF5700;box-shadow:0 0 24px rgba(191,87,0,.28)}
+
+/* ---- card surfaces: #111726 with a 1px hairline ---- */
+html[data-theme="dark"] :is(.card,.card.g,.tool,.timeline li,.vals li,.metrics div,.preview,.scope div,.formbox,.doc,.matrix-card,.media-card){
+  background-color:#111726;background-image:none;border:1px solid rgba(255,255,255,.08);border-radius:18px;
+  -webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 10px 30px -14px rgba(0,0,0,.7)}
+html[data-theme="dark"] :is(.card.g,.matrix-card){background-image:linear-gradient(145deg,rgba(191,87,0,.08),transparent 58%)}
+html[data-theme] .card{border-radius:18px}
+/* hover: lift 4px, glowing burnt-orange top and side edge */
+html[data-theme] .card,html[data-theme] .card-hover-glow{transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s,border-color .3s}
+html[data-theme] .card:hover,html[data-theme] .card-hover-glow:hover{transform:translateY(-4px);border-color:rgba(191,87,0,.6);
+  box-shadow:0 0 0 1px rgba(191,87,0,.28),0 0 34px rgba(191,87,0,.22),inset 0 2px 0 #BF5700,inset 3px 0 0 rgba(191,87,0,.75),0 18px 40px -14px rgba(0,0,0,.7)}
+
+/* ---- bento grid for project cards ---- */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;align-items:stretch}
+.bento>.card{grid-column:span 3;margin-top:0!important;padding:30px}
+.bento>.card.b-wide{grid-column:1/-1}
+.bento>.card.b-wide ul.ticks{columns:2;column-gap:40px}
+.bento>.card.b-wide ul.ticks li{break-inside:avoid}
+.bento .card>h3:first-child{font-size:1.4rem}
+@media(max-width:860px){.bento{grid-template-columns:1fr}.bento>.card,.bento>.card.b-wide{grid-column:auto}.bento>.card.b-wide ul.ticks{columns:1}}
+
+/* ---- interactive skill pills (monospace) ---- */
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 14px;padding:0;list-style:none}
+.pills li{font:500 .76rem/1 var(--mono);padding:8px 12px;border-radius:999px;color:#CBD5E1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);cursor:default;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s,color .2s}
+.pills li:hover,.pills li:focus-visible{color:#fff;border-color:#BF5700;background:rgba(191,87,0,.22);box-shadow:0 0 18px rgba(191,87,0,.4);transform:translateY(-2px);outline:none}
+[data-theme="light"] .pills li{color:#374151;background:rgba(15,23,42,.04);border-color:rgba(15,23,42,.12)}
+[data-theme="light"] .pills li:hover,[data-theme="light"] .pills li:focus-visible{color:#7A3800;background:rgba(191,87,0,.12)}
+
+/* ---- monospace sub-badges ---- */
+.badge,.eyebrow,.fr-tag,.fmt,.cs-tag,.rp-badges span,.cap-badges li,.contact-rows b,.chip b,.rp-label{font-family:var(--mono);letter-spacing:.06em}
+.eyebrow,.fr-tag,.rp-label{text-transform:uppercase;font-size:.74rem}
+
+/* ---- about: contact chips ---- */
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px;padding:0;list-style:none}
+.chip{display:inline-flex;align-items:center;gap:11px;padding:9px 18px 9px 13px;border-radius:999px;border:1px solid var(--g-line);background:rgba(255,255,255,.04);color:var(--text);font-size:.93rem;line-height:1.25;text-decoration:none;max-width:100%;overflow-wrap:anywhere;transition:transform .2s,border-color .2s,box-shadow .2s}
+.chip svg{flex:none;width:18px;height:18px;fill:none;stroke:#F0842C;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.chip b{display:block;font-size:.66rem;font-weight:600;text-transform:uppercase;color:var(--muted);margin-bottom:1px}
+a.chip:hover,a.chip:focus-visible{border-color:#BF5700;box-shadow:0 0 22px rgba(191,87,0,.3);transform:translateY(-2px)}
+[data-theme="light"] .chip{background:rgba(15,23,42,.04)}
+.contact-panel .chip-row{margin-bottom:16px}
+
+/* ---- resume preview: four labelled groups ---- */
+.rp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px;margin:22px 0 18px}
+.rp-group .rp-label{margin:0 0 8px;color:var(--accent-text);font-weight:600}
+.rp-group .rp-list{margin:0}
+.rp-group b{color:var(--text);font-weight:600}
+@media(max-width:700px){.rp-grid{grid-template-columns:1fr}}
+
+/* ---- contact: scheduler always on a pure white canvas, in light and dark ---- */
+html[data-theme] .calendar-container{background:#FFFFFF;border:1px solid rgba(255,255,255,.08);--cal-head:#111827;--cal-body:#374151;-webkit-backdrop-filter:none;backdrop-filter:none;color-scheme:light}
+html[data-theme] .calendar-frame,html[data-theme] .calendar-frame iframe{background:#FFFFFF;filter:none;color-scheme:light}
+html[data-theme] .calendar-container .calendar-fallback{background:#FFFFFF}
+
+/* first section clears the floating nav */
+main>section:first-child:not(.hero-section){padding-top:132px}
+@media(max-width:767px){main>section:first-child:not(.hero-section){padding-top:104px}}
+
+/* v27: hero content shares the 1180px grid with the floating nav pill and the sections below it */
+.hero-section>.wrap,.hero-section>.hero-container,.hero>.wrap{width:min(100% - 48px,1180px);max-width:1180px;margin:auto;padding-left:0;padding-right:0}
