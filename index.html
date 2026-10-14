@@ -6,7 +6,7 @@
         <title>Kerr Maangue | Virtual Operations &amp; Pre-Construction Administrative Specialist</title>
         <meta name="description" content="Remote project controls and pre-construction administrative support for construction firms, project managers and owners. Based in the Philippines." />
         <link rel="canonical" href="https://kerrmaangue.github.io/" />
-        <meta name="theme-color" content="#bf5700" />
+        <meta name="theme-color" content="#CC5500" />
         <link rel="shortcut icon" href="./assets/favicon.png" type="image/png" />
 
         <!-- Open Graph / Facebook -->
@@ -56,13 +56,16 @@
                 aria-label="About Kerr"
             >
                 <!-- sidebar -->
-                <div class="avatar tw-h-[250px] tw-w-[250px] tw-overflow-hidden tw-rounded-full">
-                    <img
-                        src="./assets/images/people/kerr.jpg"
-                        class="tw-h-full tw-w-full tw-object-cover"
-                        alt="Portrait of Kerr Maangue"
-                        width="250" height="250"
-                    />
+                <div class="avatar-ring tw-rounded-full">
+                    <div class="avatar tw-overflow-hidden tw-rounded-full">
+                        <img
+                            src="./assets/images/people/kerr.jpg"
+                            class="tw-h-full tw-w-full tw-object-cover tw-object-center"
+                            alt="Portrait of Kerr Maangue"
+                            width="250" height="250"
+                            decoding="async"
+                        />
+                    </div>
                 </div>
 
                 <h1 class="tw-text-3xl tw-font-semibold name">Kerr Maangue</h1>
@@ -74,10 +77,11 @@
                 </p>
 
                 <a
-                    href="mailto:kerr.maangue14@gmail.com"
+                    href="#start"
+                    onclick="openTab(event, 'start')"
                     class="btn-primary !tw-w-full tw-max-w-[550px] tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.02]"
                 >
-                    Contact me
+                    Get started
                 </a>
 
                 <div class="tw-mt-auto tw-flex tw-flex-col tw-gap-2">
@@ -116,6 +120,7 @@
                         <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="skills" onclick="openTab(event, 'skills')">Skills</button>
                         <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="experience" onclick="openTab(event, 'experience')">Experience</button>
                         <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="call" onclick="openTab(event, 'call')">Schedule call</button>
+                        <button class="tab-btn tab-cta" role="tab" aria-selected="false" tabindex="-1" data-tab="start" onclick="openTab(event, 'start')">Get Started</button>
                     </div>
 
                     <div class="tw-m-2 tw-ml-auto tw-flex tw-place-items-center tw-gap-2 max-lg:tw-mt-auto">
@@ -160,24 +165,29 @@
                                     <a
                                         href="#projects"
                                         onclick="openTab(event, 'projects')"
-                                        class="btn-primary !tw-bg-[#c8cbf984] !tw-text-primary tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]"
+                                        class="btn-soft tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]"
                                     >
                                         <span>View projects</span>
                                     </a>
                                     <a
                                         class="btn-primary tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]"
-                                        href="mailto:kerr.maangue14@gmail.com"
+                                        href="#start"
+                                        onclick="openTab(event, 'start')"
                                     >
-                                        Contact
+                                        Get started
                                     </a>
                                 </div>
 
-                                <div class="glass facts" data-anim>
-                                    <div class="stat"><b>500+</b><span>public projects tracked</span></div>
-                                    <div class="stat"><b>100%</b><span>quality control &amp; accuracy</span></div>
-                                    <div class="stat"><b>$100M+</b><span>campus program experience</span></div>
-                                    <div class="stat"><b>5+</b><span>years remote AEC experience</span></div>
-                                </div>
+                                <section class="track" id="track-record" aria-labelledby="track-h">
+                                    <h2 id="track-h" class="track-h">Track record</h2>
+                                    <p class="track-sub">Remote AEC project controls, in numbers.</p>
+                                    <div class="track-grid">
+                                        <div class="glass track-card"><b class="count" data-count="500" data-suffix="+">500+</b><span>public projects tracked</span><i class="bar" aria-hidden="true"></i></div>
+                                        <div class="glass track-card"><b class="count" data-count="100" data-suffix="%">100%</b><span>quality control &amp; accuracy</span><i class="bar" aria-hidden="true"></i></div>
+                                        <div class="glass track-card"><b class="count" data-count="100" data-prefix="$" data-suffix="M+">$100M+</b><span>public campus program experience</span><i class="bar" aria-hidden="true"></i></div>
+                                        <div class="glass track-card"><b class="count" data-count="5" data-suffix="+">5+</b><span>years remote AEC experience</span><i class="bar" aria-hidden="true"></i></div>
+                                    </div>
+                                </section>
 
                                 <p class="avail" data-anim><span class="dot" aria-hidden="true"></span> Currently accepting new projects, part-time and full-time roles</p>
                             </div>
@@ -211,7 +221,6 @@
                                 <summary>Scope, responsibilities &amp; deliverables</summary>
                                 <div class="case-more-inner">
                                     <p>The campus program combines the New Public Safety Building and the Parking Garage for the City of Mountain View. Running two structures under one program means two sets of consultants, submittals and permits that have to stay aligned.</p>
-                                    <img src="assets/projects/mountain-view-structure.jpg" alt="Structural work on the Mountain View campus" loading="lazy" class="case-img2" />
                                     <div class="case-cols">
                                         <div><h4 class="mini-h">Responsibilities</h4><ul class="ticks"><li>Dual-structure coordination across the building and the garage</li><li>Master RFI and submittal register control</li><li>A/E selection schedule tracking</li><li>Multi-agency permit logging</li><li>Inter-agency communication directory</li><li>Weekly status reporting for city stakeholders</li></ul></div>
                                         <div><h4 class="mini-h">Key deliverables</h4><ul class="ticks"><li>$100M+ Program Master Submittal Log</li><li>RFI Register with owner, due date and days open</li><li>Pre-Con Look-Ahead Schedule</li></ul></div>
@@ -220,7 +229,7 @@
                                 </div>
                             </details>
                             <div class="project-actions">
-                                <a class="btn-primary" href="https://kerrmaangue.github.io/projects/mountain-view-public-safety.html" target="_blank" rel="noopener noreferrer">View full case study <i class="bi bi-arrow-up-right"></i></a>
+                                <a class="btn-primary" href="projects/mountain-view.html">View full case study <i class="bi bi-arrow-right"></i></a>
                                 <a class="btn-ghost" href="mailto:kerr.maangue14@gmail.com?subject=Mountain%20View%20case%20study">Ask about this work</a>
                             </div>
                         </div>
@@ -242,7 +251,6 @@
                                 <summary>Scope, responsibilities &amp; deliverables</summary>
                                 <div class="case-more-inner">
                                     <p>Projects start in public documents long before bidding. The work was finding them in those documents, then making each record complete, verified and correct.</p>
-                                    
                                     <div class="case-cols">
                                         <div><h4 class="mini-h">Responsibilities</h4><ul class="ticks"><li>Tracked capital improvement plans (CIPs)</li><li>Managed Dodge Reports (V1s)</li><li>Logged RFIs and submittals</li><li>Verified A/E and GC factors for each project</li><li>Deduplicated project records</li><li>Managed source communications</li></ul></div>
                                         <div><h4 class="mini-h">Estimating matrix</h4><ul class="ticks"><li>Square-foot rates ($30/SF barns, $100/SF hangars)</li><li>Unit-based valuation for boilers and AHUs</li><li>DOT mile-marker linear costing formulas</li><li>Multi-tab rules (GB, Engr, DOT, B-Items, C-Items)</li></ul></div>
@@ -251,7 +259,7 @@
                                 </div>
                             </details>
                             <div class="project-actions">
-                                <a class="btn-primary" href="https://kerrmaangue.github.io/experience/dodge-construction-network.html" target="_blank" rel="noopener noreferrer">View full case study <i class="bi bi-arrow-up-right"></i></a>
+                                <a class="btn-primary" href="projects/dodge-construction.html">View full case study <i class="bi bi-arrow-right"></i></a>
                                 <a class="btn-ghost" href="mailto:kerr.maangue14@gmail.com?subject=Dodge%20Construction%20Network%20showcase">Ask about this work</a>
                             </div>
                         </div>
@@ -273,7 +281,6 @@
                                 <summary>Scope, responsibilities &amp; deliverables</summary>
                                 <div class="case-more-inner">
                                     <p>A renovation like this runs many small, connected items at once: trade sequencing, vendor submittals, repair records, accessibility fixes and a budget matched to the CTE scope.</p>
-                                    
                                     <div class="case-cols">
                                         <div><h4 class="mini-h">Responsibilities</h4><ul class="ticks"><li>Pre-construction planning support</li><li>Multi-trade schedule tracking</li><li>Vendor submittal coordination</li><li>Plumbing and concrete repair logs</li><li>ADA accessibility punch-list updates</li><li>Budget tracking against the $455,000 CTE budget</li></ul></div>
                                         <div><h4 class="mini-h">Key deliverables</h4><ul class="ticks"><li>Construction Progress Matrix</li><li>ADA Compliance Audit Log</li><li>CTE Budget Tracker (allocation matrix)</li></ul></div>
@@ -282,12 +289,19 @@
                                 </div>
                             </details>
                             <div class="project-actions">
-                                <a class="btn-primary" href="https://kerrmaangue.github.io/manhattan-middle-school.html" target="_blank" rel="noopener noreferrer">View full case study <i class="bi bi-arrow-up-right"></i></a>
+                                <a class="btn-primary" href="projects/manhattan-middle-school.html">View full case study <i class="bi bi-arrow-right"></i></a>
                                 <a class="btn-ghost" href="mailto:kerr.maangue14@gmail.com?subject=Manhattan%20Middle%20School%20case%20study">Ask about this work</a>
                             </div>
                         </div>
                     </article>
 
+                            <div class="glass cta-band" data-anim>
+                                <div>
+                                    <h3>Have a project in mind?</h3>
+                                    <p>Tell me what you want off your plate and I will reply within one business day.</p>
+                                </div>
+                                <a class="btn-primary" href="#start" onclick="openTab(event, 'start')">Get started <i class="bi bi-arrow-right"></i></a>
+                            </div>
                         </div>
                     </section>
 
@@ -296,31 +310,27 @@
                         class="tab-content tw-relative tw-flex tw-hidden tw-h-full tw-w-full tw-flex-col tw-overflow-hidden max-lg:tw-p-4"
                         data-tab-name="skills" role="tabpanel"
                     >
-                        <div class="tw-flex tw-h-full tw-w-full tw-flex-wrap tw-place-content-center tw-gap-6 tw-p-[5%] tw-px-[25%] max-xl:tw-place-items-center max-lg:tw-px-[10%] max-md:tw-px-2">
-                            <div class="tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl skill-card" data-anim>
-                                <div class="skill-tile"><b>Procore</b><span>Project management</span></div>
+                        <div class="skills-wrap">
+                            <div class="tab-intro" data-anim>
+                                <h2>Tools &amp; skills</h2>
+                                <p>The software behind the work: project controls, trackers, communication and records.</p>
                             </div>
-                            <div class="tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl skill-card" data-anim>
-                                <div class="skill-tile"><b>Bluebeam Revu</b><span>PDF markup &amp; drawing review</span></div>
-                            </div>
-                            <div class="tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl skill-card" data-anim>
-                                <div class="skill-tile"><b>Dodge Global Network</b><span>IRIS / DF Manager</span></div>
-                            </div>
-                            <div class="tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl skill-card" data-anim>
-                                <div class="skill-tile"><b>Microsoft Excel</b><span>Trackers, logs &amp; schedules</span></div>
-                            </div>
-                            <div class="tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl skill-card" data-anim>
-                                <div class="skill-tile"><b>Smartsheet</b><span>Schedules &amp; tracking</span></div>
-                            </div>
-                            <div class="tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl skill-card" data-anim>
-                                <div class="skill-tile"><b>Salesforce</b><span>CRM</span></div>
-                            </div>
-                            <div class="tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl skill-card" data-anim>
-                                <div class="skill-tile"><b>Zoom</b><span>Meetings</span></div>
-                            </div>
-                            <div class="tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl skill-card" data-anim>
-                                <div class="skill-tile"><b>Microsoft Teams</b><span>Chat &amp; meetings</span></div>
-                            </div>
+                            <section class="glass skill-group" data-anim aria-label="Construction &amp; project controls">
+                                <div class="skill-group-head"><h3>Construction &amp; project controls</h3><p>Where the day-to-day project work happens.</p></div>
+                                <div class="skill-grid" role="list"><div class="skill-tile-card" role="listitem"><span class="mono" aria-hidden="true">Pc</span><b>Procore</b><span>Project management</span></div><div class="skill-tile-card" role="listitem"><span class="mono" aria-hidden="true">Bb</span><b>Bluebeam Revu</b><span>PDF markup &amp; drawing review</span></div><div class="skill-tile-card" role="listitem"><span class="mono" aria-hidden="true">D</span><b>Dodge IRIS / DF Manager</b><span>Project research &amp; reports</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg><b>PDF markup</b><span>Plans, specs &amp; submittals</span></div></div>
+                            </section>
+                            <section class="glass skill-group" data-anim aria-label="Trackers, budgets &amp; documents">
+                                <div class="skill-group-head"><h3>Trackers, budgets &amp; documents</h3><p>Logs, schedules, estimates and reports.</p></div>
+                                <div class="skill-grid" role="list"><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.17 3.25q.33 0 .59.25.24.24.24.58v15.84q0 .34-.24.58-.26.25-.59.25H7.83q-.33 0-.59-.25-.24-.24-.24-.58V17H2.83q-.33 0-.59-.24Q2 16.5 2 16.17V7.83q0-.33.24-.59Q2.5 7 2.83 7H7V4.08q0-.34.24-.58.26-.25.59-.25M7 13.06l1.18 2.22h1.79L8 12.06l1.93-3.17H8.22L7.13 10.9l-.04.06-.03.07q-.26-.53-.56-1.07-.25-.53-.53-1.07H4.16l1.89 3.19L4 15.28h1.78m8.1 4.22V17H8.25v2.5m5.63-3.75v-3.12H12v3.12m1.88-4.37V8.25H12v3.13M13.88 7V4.5H8.25V7m12.5 12.5V17h-5.62v2.5m5.62-3.75v-3.12h-5.62v3.12m5.62-4.37V8.25h-5.62v3.13M20.75 7V4.5h-5.62V7Z"/></svg><b>Microsoft Excel</b><span>Trackers, logs &amp; budget models</span></div><div class="skill-tile-card" role="listitem"><span class="mono" aria-hidden="true">S</span><b>Smartsheet</b><span>Schedules &amp; tracking</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.17 3.25q.33 0 .59.25.24.24.24.58v15.84q0 .34-.24.58-.26.25-.59.25H7.83q-.33 0-.59-.25-.24-.24-.24-.58V17H2.83q-.33 0-.59-.24Q2 16.5 2 16.17V7.83q0-.33.24-.59Q2.5 7 2.83 7H7V4.08q0-.34.24-.58.26-.25.59-.25m-.8 8.09 1.2 3.94H9.6l1.31-6.56H9.53l-.78 3.88-1.11-3.75H6.5l-1.19 3.77-.78-3.9H3.09l1.31 6.56h1.37m14.98 4.22V17H8.25v2.5m12.5-3.75v-3.12H12v3.12m8.75-4.37V8.25H12v3.13M20.75 7V4.5H8.25V7Z"/></svg><b>Microsoft Word</b><span>Reports &amp; documents</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.25 3.25q1.21 0 2.33.31 1.12.32 2.09.89.97.55 1.77 1.36.79.8 1.36 1.77.58.97.89 2.09T22 12t-.31 2.33-.89 2.09q-.57.97-1.36 1.77-.8.81-1.77 1.36-.97.58-2.09.89t-2.33.31q-1.07 0-2.1-.25-1.03-.26-1.95-.74-.92-.49-1.7-1.18-.81-.7-1.43-1.58H2.83q-.33 0-.59-.24Q2 16.5 2 16.17V7.83q0-.33.24-.58Q2.5 7 2.83 7h3.24q.62-.88 1.43-1.58.78-.7 1.7-1.18.93-.48 1.95-.74 1.03-.25 2.1-.25m.63 1.28v6.84h6.84q-.12-1.37-.69-2.56T18.55 6.7q-.91-.91-2.12-1.48-1.2-.57-2.55-.69M9.5 10.84q0-.57-.2-.97-.19-.41-.52-.66-.33-.26-.78-.37-.45-.12-1-.12H4.37v6.55h1.54V13h1.03q.48 0 .93-.16.46-.14.82-.41.36-.26.58-.67.23-.4.23-.92m3.75 8.66q.98 0 1.89-.24.9-.26 1.71-.68.81-.45 1.48-1.08.67-.61 1.17-1.37.5-.77.83-1.66.31-.89.39-1.85h-8.08V4.53q-1.45.12-2.73.76T7.67 7h3.5q.33 0 .59.25.24.25.24.58v8.34q0 .33-.24.59-.26.24-.59.24h-3.5q.53.6 1.17 1.06.66.44 1.35.78.72.33 1.49.49.77.17 1.57.17M6.85 10q.47 0 .76.19.28.19.28.7 0 .22-.1.36t-.26.25q-.16.07-.35.1-.18.04-.38.04h-.89V10z"/></svg><b>Microsoft PowerPoint</b><span>Status decks</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6zm1.363 10.636h-3.41v1.91h3.41zm0 3.273h-3.41v1.91h3.41zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"/></svg><b>Google Sheets</b><span>Shared trackers</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.727 6.727H14V0H4.91c-.905 0-1.637.732-1.637 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727zm-.545 10.455H7.09v-1.364h7.09v1.364zm2.727-3.273H7.091v-1.364h9.818zm0-3.273H7.091V9.273h9.818zM14.727 6h6l-6-6z"/></svg><b>Google Docs</b><span>Shared documents</span></div></div>
+                            </section>
+                            <section class="glass skill-group" data-anim aria-label="Communication &amp; scheduling">
+                                <div class="skill-group-head"><h3>Communication &amp; scheduling</h3><p>Staying in step with owners, designers and contractors.</p></div>
+                                <div class="skill-grid" role="list"><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.56 12.03q0 .38-.06.73-.11.34-.3.62-.2.27-.49.43-.3.16-.71.16-.42 0-.71-.17t-.48-.45-.27-.63q-.09-.35-.09-.72 0-.36.09-.72.08-.35.27-.63t.5-.45q.3-.17.72-.17.43 0 .72.17.3.18.48.46.18.29.27.64.06.36.06.73M22 12v7.81q0 .39-.27.69-.28.25-.67.25H7.94q-.39 0-.67-.25-.27-.3-.27-.69V17H2.83q-.33 0-.59-.24Q2 16.5 2 16.17V7.83q0-.33.24-.59Q2.5 7 2.83 7h5.42V4.13q0-.37.25-.63.26-.25.63-.25h10.74q.37 0 .63.25.25.26.25.63v6.91l1.04.6h.01q.08.06.14.16.06.09.06.2m-5-6.87v2.5h2.5v-2.5M17 8.88v2.5h2.5v-2.5M17 12.63v1.52l2.54-1.52m-6.91-7.5v2.5h3.12v-2.5m-3.12 3.75v2.5h3.12v-2.5m-3.12 3.75v1.69l2.01 1.24 1.11-.66v-2.27M9.5 5.13V7h1.77q.06 0 .11.04V5.12M7 15.32q.73 0 1.32-.26.58-.26.99-.71.4-.45.6-1.07.21-.62.22-1.34 0-.69-.21-1.29-.2-.59-.6-1.03-.39-.44-.95-.69-.57-.25-1.29-.25-.77 0-1.37.25-.59.25-1 .7-.41.46-.62 1.08-.21.63-.21 1.37 0 .7.21 1.3.22.59.62 1.02t.97.68q.58.24 1.32.24m1.25 4.18h10.32L12 15.4v.77q0 .33-.24.59-.26.24-.59.24H8.25m12.5 2.39v-6.03l-4.92 2.95Z"/></svg><b>Microsoft Outlook</b><span>Email &amp; calendar</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.19 8.77q-.46 0-.86-.17-.39-.17-.69-.47t-.47-.69q-.17-.4-.17-.86 0-.45.17-.85t.47-.69q.3-.3.69-.47.4-.18.86-.17.45-.01.85.17.4.17.7.47.29.29.47.69.17.4.17.85 0 .46-.17.86-.17.39-.47.69t-.7.47-.85.17m0-3.12q-.39 0-.69.27-.25.27-.25.66t.25.67q.3.25.69.25t.66-.25q.28-.25.28-.67 0-.39-.28-.66-.27-.27-.66-.27M22 10.33V15q0 .63-.24 1.2-.26.57-.67.99-.43.43-1 .67-.59.25-1.21.25-.38 0-.76-.11-.39-.07-.71-.25-.24.79-.71 1.44t-1.1 1.11-1.39.7q-.76.27-1.58.27-.96 0-1.81-.33-.82-.33-1.5-.94-.66-.57-1.09-1.36-.44-.8-.57-1.74H2.83q-.33 0-.59-.25-.24-.24-.24-.58V7.73q0-.34.24-.59.26-.24.59-.24H10q-.29-.6-.29-1.25 0-.61.23-1.15.22-.5.62-.92.4-.39.94-.62.5-.23 1.12-.23.61 0 1.14.23t.93.62q.4.42.62.92.23.54.23 1.15 0 .6-.23 1.14-.22.53-.62.92-.4.4-.93.63t-1.14.23q-.15 0-.31-.02-.15-.02-.31-.05v.9h9.06q.39 0 .67.27.27.27.27.66M12.63 4q-.35 0-.63.11-.33.13-.56.36-.22.23-.35.53-.13.31-.13.65 0 .35.13.65t.35.53q.23.22.56.36.28.13.63.13.34 0 .64-.13.3-.14.53-.36.23-.23.36-.53.14-.3.14-.65 0-.34-.14-.65-.13-.3-.36-.53t-.53-.36q-.3-.11-.64-.11m-4.85 6.18h1.88V8.62H4.34v1.56h1.88v5h1.56m8.6 1.09v-5.62H12v5.42q0 .34-.24.58-.26.25-.59.25H8.92q.13.67.47 1.25.34.57.82.99.48.41 1.1.65.61.21 1.32.21.77 0 1.45-.27.68-.3 1.2-.81.51-.51.8-1.19.3-.68.3-1.46M20.75 15v-4.35h-3.12v5.71q.25.25.57.38.3.12.68.12.39 0 .73-.15t.59-.4q.26-.25.4-.6.15-.34.15-.71"/></svg><b>Microsoft Teams</b><span>Chat &amp; meetings</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.033 14.649H.743a.74.74 0 0 1-.686-.458.74.74 0 0 1 .16-.808L3.19 10.41H1.06A1.06 1.06 0 0 1 0 9.35h3.957c.301 0 .57.18.686.458a.74.74 0 0 1-.161.808L1.51 13.59h2.464c.585 0 1.06.475 1.06 1.06zM24 11.338a2.068 2.068 0 0 0-3.603-1.38 2.06 2.06 0 0 0-1.536-.686c-1.14 0-2.066.926-2.066 2.066v3.311a1.06 1.06 0 0 0 1.06-1.06v-2.251a1.004 1.004 0 0 1 2.013 0v2.251c0 .586.474 1.06 1.06 1.06v-3.311a1.004 1.004 0 0 1 2.012 0v2.251c0 .586.475 1.06 1.06 1.06zM16.265 12a2.728 2.728 0 1 1-5.457 0 2.728 2.728 0 0 1 5.457 0m-1.06 0a1.669 1.669 0 1 0-3.338 0 1.669 1.669 0 0 0 3.338 0m-4.82 0a2.728 2.728 0 1 1-5.458 0 2.728 2.728 0 0 1 5.457 0zm-1.06 0a1.669 1.669 0 1 0-3.338 0 1.669 1.669 0 0 0 3.338 0"/></svg><b>Zoom</b><span>Meetings</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.53 2.13 0 7.75h5.53zm.398 0v5.62h7.608v3.65l5.47-4.45c-.014-1.22.031-2.25-.025-3.46-.148-1.09-1.287-1.47-2.236-1.36zM23.1 4.32c-.802.295-1.358.995-2.047 1.49-2.506 2.05-4.982 4.12-7.468 6.19 3.025 2.59 6.04 5.18 9.065 7.76 1.218.671 1.428-.814 1.328-1.64v-13a.83.83 0 0 0-.877-.825zM.038 8.15v7.7h5.53v-7.7zm13.577 8.1H6.008v5.62c3.864-.006 7.737.011 11.58-.009 1.02-.07 1.618-1.12 1.468-2.07v-2.51l-5.47-4.68v3.65zm-13.577 0c.02 1.44-.041 2.88.033 4.31.162.948 1.158 1.43 2.047 1.31h3.464v-5.62z"/></svg><b>Google Meet</b><span>Meetings</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457"/></svg><b>Gmail</b><span>Email</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.316 5.684H24v12.632h-5.684zM5.684 24h12.632v-5.684H5.684zM18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v16.421h5.684V5.684zm-7.207 6.25v-.065q.407-.216.687-.617c.28-.401.279-.595.279-.982q0-.568-.3-1.025a2.05 2.05 0 0 0-.832-.714 2.7 2.7 0 0 0-1.197-.257q-.9 0-1.481.467-.579.467-.793 1.078l1.085.452q.13-.374.413-.633.284-.258.767-.257.495 0 .816.264a.86.86 0 0 1 .322.703q0 .495-.36.778t-.886.284h-.567v1.085h.633q.611 0 1.02.327.407.327.407.843 0 .505-.387.832c-.387.327-.565.327-.924.327q-.527 0-.897-.311-.372-.312-.521-.881l-1.096.452q.268.923.977 1.401.707.479 1.538.477a2.84 2.84 0 0 0 1.293-.291q.574-.29.902-.794.327-.505.327-1.149 0-.643-.344-1.105a2.07 2.07 0 0 0-.881-.689m2.093-1.931.602.913L15 10.045v5.744h1.187V8.446h-.827zM22.105 0h-3.289v5.184H24V1.895A1.894 1.894 0 0 0 22.105 0m-3.289 23.5 4.684-4.684h-4.684zM0 22.105C0 23.152.848 24 1.895 24h3.289v-5.184H0z"/></svg><b>Google Calendar</b><span>Scheduling</span></div></div>
+                            </section>
+                            <section class="glass skill-group" data-anim aria-label="Files &amp; CRM">
+                                <div class="skill-group-head"><h3>Files &amp; CRM</h3><p>Keeping records findable and customers tracked.</p></div>
+                                <div class="skill-grid" role="list"><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.38 6.37c-.7 0-1.31.21-1.91.41-.7-1.21-2.01-2.01-3.42-2.01-1.1 0-2.1.5-2.81 1.2-.8-1-2.01-1.71-3.41-1.71C4.5 4.26 2.5 6.17 2.5 8.5c0 .59.21 1.19.41 1.79A3.68 3.68 0 0 0 1 13.5c0 2 1.61 3.72 3.62 3.72.3 0 .6 0 .8-.1.4 1.51 1.91 2.62 3.72 2.62 1.7 0 3.11-1.01 3.61-2.42.51.21 1.01.41 1.51.41 1.31 0 2.51-.73 3.11-1.81.31.08.63.08.91.08 2.61 0 4.72-2.09 4.72-4.8.1-2.7-2-4.83-4.62-4.83"/></svg><b>Salesforce</b><span>CRM</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 13.25q0 1.04-.4 1.95-.39.9-1.07 1.58t-1.59 1.08q-.91.39-1.94.39-.64 0-1.27-.16-.09.83-.46 1.54-.38.72-.97 1.25-.58.53-1.33.82-.76.3-1.59.3-.91 0-1.71-.35-.79-.34-1.39-.93-.59-.59-.93-1.39-.35-.8-.35-1.7v-.32q.03-.15.05-.31H2.83q-.33 0-.59-.24Q2 16.5 2 16.17V7.83q0-.33.24-.59Q2.5 7 2.83 7h2.95q.12-1.06.61-2 .48-.89 1.24-1.56.75-.68 1.71-1.06T11.38 2q1.16 0 2.18.44 1.03.45 1.79 1.21t1.21 1.79Q17 6.46 17 7.63v.31q0 .15-.04.31 1.04 0 1.95.39.92.39 1.59 1.07.71.67 1.1 1.58.4.92.4 1.96m-10.63-10q-.81 0-1.54.29-.74.28-1.33.78-.56.5-.95 1.18-.38.7-.5 1.5h4.12q.33 0 .59.25.24.25.24.58v4.12l.18-.03q.17-.62.5-1.18.32-.57.79-1.02.45-.45 1.03-.79.54-.33 1.17-.5.08-.43.08-.8 0-.91-.35-1.71-.34-.79-.94-1.38-.59-.59-1.38-.94-.8-.35-1.71-.35m-4.27 12q.45 0 .9-.09.42-.09.76-.31.34-.21.55-.56.19-.36.19-.88 0-.53-.2-.88-.22-.35-.55-.59-.33-.23-.71-.38l-.72-.29Q7 11.14 6.77 11q-.22-.15-.22-.38 0-.16.12-.27.12-.1.28-.15.16-.07.33-.09.18-.01.3-.01.49 0 .88.12.38.13.79.38V9.12Q9 9.05 8.81 9q-.2-.05-.39-.08-.2-.03-.42-.05-.2-.01-.45-.01-.43 0-.88.09-.45.1-.82.32-.35.23-.59.56-.23.35-.23.86 0 .5.22.81.22.35.55.59.33.23.7.41l.72.29q.34.14.56.29.22.16.22.38 0 .19-.11.3-.1.11-.26.16-.13.08-.32.08H7q-.59 0-1.04-.18-.46-.2-.92-.52v1.56q.99.39 2.06.39m4.27 5.5q.63 0 1.21-.25.57-.24 1-.66.42-.43.67-1t.25-1.21q0-.56-.19-1.07-.18-.51-.51-.91-.34-.41-.8-.69-.45-.28-1-.4v1.61q0 .33-.24.59-.26.24-.59.24H8.31q-.06.31-.06.63 0 .64.25 1.21.24.57.66 1 .43.42 1 .66.57.25 1.21.25M17 17q.77 0 1.45-.29.69-.29 1.2-.81.51-.51.81-1.19.29-.68.29-1.46 0-.75-.29-1.45-.3-.69-.81-1.2t-1.2-.81Q17.77 9.5 17 9.5t-1.45.3-1.19.81-.81 1.19q-.3.7-.3 1.45v.21l.02.22q.46.22.85.54.38.32.7.71.3.4.52.86.21.46.32.95.66.26 1.34.26"/></svg><b>SharePoint</b><span>Shared project files</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.21 10.29q.79.05 1.49.39.69.32 1.2.89.51.55.81 1.26.29.71.29 1.51 0 .84-.32 1.58t-.88 1.29q-.55.55-1.3.87-.72.33-1.56.33H7q-1.03 0-1.94-.41-.91-.39-1.59-1.06-.68-.68-1.07-1.59-.4-.91-.4-1.94 0-.82.26-1.58.24-.75.74-1.38.44-.63 1.08-1.1t1.42-.72q.37-.13.71-.13.35-.07.72-.09h.01q.43-.66 1.01-1.18.55-.52 1.25-.89.67-.34 1.42-.56.75-.19 1.54-.19 1.06 0 2.04.35t1.8.97q.8.62 1.37 1.48.58.87.84 1.9m-6.05-3.45q-1.11 0-2.1.46-1 .45-1.7 1.3.37.1.71.25.33.15.66.35l3.98 2.38 2.29-.96q.21-.09.44-.17.23-.07.48-.12-.24-.78-.71-1.42t-1.1-1.1q-.61-.46-1.38-.71-.73-.26-1.57-.26M4 15.66l8.27-3.48-3.19-1.92q-.49-.29-1.02-.45-.56-.15-1.11-.15-.76 0-1.45.3-.66.3-1.16.81-.5.52-.8 1.2-.29.68-.29 1.44 0 .59.2 1.18.19.6.55 1.07m13.94 1.5q.47 0 .9-.16.43-.14.8-.42L13.61 13l-8.58 3.59q.44.27.94.41.5.16 1.03.16m13.45-1.55q.3-.61.3-1.27 0-.64-.25-1.17-.24-.52-.65-.89-.42-.37-.97-.57-.56-.21-1.18-.21-.35 0-.7.1-.34.08-.67.21-.33.12-.66.27-.32.15-.63.29Z"/></svg><b>OneDrive</b><span>File storage</span></div><div class="skill-tile-card" role="listitem"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.01 1.485c-2.082 0-3.754.02-3.743.047.01.02 1.708 3.001 3.774 6.62l3.76 6.574h3.76c2.081 0 3.753-.02 3.742-.047-.005-.02-1.708-3.001-3.775-6.62l-3.76-6.574zm-4.76 1.73a789.828 789.861 0 0 0-3.63 6.319L0 15.868l1.89 3.298 1.885 3.297 3.62-6.335 3.618-6.33-1.88-3.287C8.1 4.704 7.255 3.22 7.25 3.214zm2.259 12.653-.203.348c-.114.198-.96 1.672-1.88 3.287a423.93 423.948 0 0 1-1.698 2.97c-.01.026 3.24.042 7.222.042h7.244l1.796-3.157c.992-1.734 1.85-3.23 1.906-3.323l.104-.167h-7.249z"/></svg><b>Google Drive</b><span>File storage</span></div></div>
+                            </section>
                         </div>
                     </section>
 
@@ -395,6 +405,56 @@
                                 frameborder="0"
                                 loading="lazy"
                             ></iframe>
+                        </div>
+                    </section>
+
+                    <!-- GET STARTED -->
+                    <section
+                        class="tab-content tw-relative tw-flex tw-hidden tw-h-full tw-w-full tw-flex-col tw-overflow-hidden max-lg:tw-p-4"
+                        data-tab-name="start" role="tabpanel"
+                    >
+                        <div class="start-wrap">
+                            <div class="start-copy" data-anim>
+                                <p class="kicker">Get started</p>
+                                <h2>Let&rsquo;s take the paperwork off your plate</h2>
+                                <p class="lead2">Tell me a little about your project and what you want handed off. I will reply within one business day with next steps.</p>
+                                <ul class="ticks">
+                                    <li>Free discovery call to map your workload</li>
+                                    <li>Work inside your own tools and folders</li>
+                                    <li>Clear weekly reporting, no surprises</li>
+                                </ul>
+                                <p class="alt-contact">Prefer another way? <a class="link" href="#call" onclick="openTab(event, 'call')">Book a call</a> or email <a class="link" href="mailto:kerr.maangue14@gmail.com">kerr.maangue14@gmail.com</a>.</p>
+                            </div>
+
+                            <form class="glass inquiry" id="inquiry-form" data-anim novalidate
+                                  data-endpoint="" data-mailto="kerr.maangue14@gmail.com">
+                                <div class="field">
+                                    <label for="f-name">Name</label>
+                                    <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+                                </div>
+                                <div class="field">
+                                    <label for="f-email">Email</label>
+                                    <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com" />
+                                </div>
+                                <div class="field">
+                                    <label for="f-service">Service type</label>
+                                    <select id="f-service" name="service" required>
+                                        <option value="" disabled selected>Choose a service</option>
+                                        <option>Executive Support &amp; Time Restoration</option>
+                                        <option>Pre-Construction &amp; Project Controls</option>
+                                        <option>Cost Estimating &amp; Code Price Valuation</option>
+                                        <option>Something else</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="f-details">Project details</label>
+                                    <textarea id="f-details" name="details" rows="5" required placeholder="Project type and stage, tools you use today, what you want off your plate, target start date"></textarea>
+                                </div>
+                                <!-- honeypot: real visitors never fill this in -->
+                                <div class="hp" aria-hidden="true"><label>Leave blank <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+                                <button type="submit" class="btn-primary submit-btn">Send inquiry <i class="bi bi-send-fill"></i></button>
+                                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                            </form>
                         </div>
                     </section>
                 </div>
