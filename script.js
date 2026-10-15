@@ -1,5 +1,5 @@
 /* Theme toggle */
-(function(){var K='theme',r=document.documentElement;
+(function(){var K='theme-v2',r=document.documentElement;
 function set(t,save){r.setAttribute('data-theme',t);if(save){try{localStorage.setItem(K,t)}catch(e){}}
 var b=document.getElementById('theme-toggle');if(b){b.setAttribute('aria-label','Switch to '+(t==='dark'?'light':'dark')+' mode');b.setAttribute('aria-pressed',String(t==='dark'))}}
 document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('theme-toggle');
@@ -46,7 +46,7 @@ b.addEventListener('click',function(e){e.stopPropagation();set(!m.classList.cont
 m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
 document.addEventListener('click',function(e){if(!m.contains(e.target)&&!b.contains(e.target))set(false)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
-addEventListener('resize',function(){if(innerWidth>767)set(false)})})();
+addEventListener('resize',function(){if(innerWidth>1000)set(false)})})();
 
 /* ===== v6: track record entrance + count-up ===== */
 (function(){var g=document.querySelector('.stats4');if(!g)return;
@@ -127,3 +127,51 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserv
 document.documentElement.classList.add('fr-ready');
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.18,rootMargin:'0px 0px -6% 0px'});
 rows.forEach(function(r){io.observe(r)})})();
+
+
+/* ===== v28: Tally "Get Started" modal (site-wide) ===== */
+/* Any [data-tally-open] link opens the Tally form in a pop-up. Its href (intake.html) is the fallback if JS or <dialog> is unavailable. */
+(function(){
+var FORM='woO0Kx',OFFICIAL='https://tally.so/r/'+FORM,
+EMBED='https://tally.so/embed/'+FORM+'?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1',
+SEL='[data-tally-open]',dlg,opener,frame;
+if(typeof HTMLDialogElement==='undefined')return;
+function embedJs(cb){
+ if(window.Tally&&window.Tally.loadEmbeds){cb();return}
+ var s=document.createElement('script');s.src='https://tally.so/widgets/embed.js';s.async=true;s.onload=cb;s.onerror=cb;document.body.appendChild(s)}
+function build(){
+ dlg=document.createElement('dialog');dlg.className='tally-modal';dlg.setAttribute('aria-labelledby','tm-title');
+ dlg.innerHTML='<div class="cm-head"><h3 id="tm-title">Get Started</h3><a class="cm-open" href="'+OFFICIAL+'" target="_blank" rel="noopener">Open in new tab &#8599;</a><button type="button" class="cm-close" aria-label="Close form">&times;</button></div>'+
+ '<div class="tm-body"><iframe data-tally-src="'+EMBED+'" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Get Started"></iframe></div>';
+ document.body.appendChild(dlg);frame=dlg.querySelector('iframe');
+ dlg.querySelector('.cm-close').addEventListener('click',function(){dlg.close()});
+ dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+ dlg.addEventListener('close',function(){document.documentElement.classList.remove('cal-open');if(opener&&opener.focus)opener.focus()})}
+function load(service){
+ var src=EMBED+(service?'&service='+encodeURIComponent(service):'');
+ if(frame.getAttribute('data-tally-src')!==src){frame.setAttribute('data-tally-src',src);frame.removeAttribute('src')}
+ if(frame.getAttribute('src'))return;
+ embedJs(function(){
+  if(window.Tally&&window.Tally.loadEmbeds)window.Tally.loadEmbeds();
+  setTimeout(function(){if(!frame.getAttribute('src'))frame.setAttribute('src',frame.getAttribute('data-tally-src'))},400)})}
+document.addEventListener('click',function(e){
+ var a=e.target.closest&&e.target.closest(SEL);
+ if(!a||a.closest('.tally-modal')||e.defaultPrevented||e.button>0||e.metaKey||e.ctrlKey||e.shiftKey)return;
+ e.preventDefault();opener=a;if(!dlg)build();
+ load(a.getAttribute('data-service'));
+ document.documentElement.classList.add('cal-open');
+ if(!dlg.open)dlg.showModal();dlg.scrollTop=0});
+})();
+
+/* ===== v28: newsletter signup (about page profile card) ===== */
+(function(){var f=document.querySelector('[data-newsletter]');if(!f)return;
+var st=f.parentNode.querySelector('.nl-status'),em=f.querySelector('input[type=email]'),btn=f.querySelector('.nl-btn'),mail=f.getAttribute('data-mailto'),busy=false;
+function say(m,ok){st.textContent=m;st.className='nl-status '+(ok?'ok':'err')}
+f.addEventListener('submit',function(e){e.preventDefault();if(busy)return;
+ var trap=f.querySelector('[name=_gotcha]');if(trap&&trap.value)return;
+ var v=em.value.trim();if(!/^\S+@\S+\.\S+$/.test(v)){say('Please enter a valid email address.',false);em.focus();return}
+ busy=true;btn.disabled=true;say('Signing you up...',true);
+ fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){
+  if(!r.ok)throw 0;f.reset();say('Thanks, you are on the list.',true)
+ }).catch(function(){say('Could not sign you up just now. Please email '+mail+' and I will add you.',false)
+ }).then(function(){busy=false;btn.disabled=false})})})();
