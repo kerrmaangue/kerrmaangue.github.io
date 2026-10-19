@@ -80,13 +80,11 @@ try {
     if (savedTheme && sel && sel.querySelector(`option[value="${savedTheme}"]`)) sel.value = savedTheme
 } catch (e) {}
 
-if (localStorage.getItem('color-mode') === 'dark' || (!('color-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('tw-dark')
-    updateToggleModeBtn()
-} else {
-    document.documentElement.classList.remove('tw-dark')
-    updateToggleModeBtn()
-}
+// dark is the default; only an explicit saved "light" turns it off (same key as the rest of the site)
+let savedMode = "dark"
+try { savedMode = localStorage.getItem("theme-v2") || "dark" } catch (e) {}
+document.documentElement.classList.toggle("tw-dark", savedMode !== "light")
+updateToggleModeBtn()
 
 function toggleMode(){
     //toggle between dark and light mode
@@ -109,14 +107,14 @@ function updateToggleModeBtn(){
             toggleIcon.classList.remove("bi-sun-fill")
             toggleIcon.classList.add("bi-moon-fill")
         }
-        localStorage.setItem("color-mode", "dark")
+        try { localStorage.setItem("theme-v2", "dark") } catch (e) {}
         
     }else{
         if (toggleIcon){
             toggleIcon.classList.add("bi-sun-fill")
             toggleIcon.classList.remove("bi-moon-fill")
         }
-        localStorage.setItem("color-mode", "light")
+        try { localStorage.setItem("theme-v2", "light") } catch (e) {}
     }
 
 }
