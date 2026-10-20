@@ -28,9 +28,9 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 <a class="skip-link" href="#main-content">Skip to content</a>
 <main class="tw-flex tw-h-full tw-w-full tw-overflow-hidden max-lg:tw-flex-col">
 <section class="sidebar glass-side tw-flex tw-h-full tw-w-[450px] tw-flex-col tw-place-items-center tw-gap-4 tw-p-4 max-lg:tw-w-full lg:tw-shadow-xl lg:dark:tw-shadow-gray-600" aria-label="Profile">
-<div class="avatar tw-h-[250px] tw-w-[250px] tw-overflow-hidden tw-rounded-full">
+<div class="avatar-wrap"><div class="avatar tw-h-[250px] tw-w-[250px] tw-overflow-hidden tw-rounded-full">
 <img src="assets/images/people/kerr.jpg" class="tw-h-full tw-w-full tw-object-cover" alt="Portrait of Kerr Maangue" width="250" height="250">
-</div>
+</div></div>
 <h1 class="name tw-text-3xl tw-font-semibold">Kerr Maangue</h1>
 <p class="bio tw-mt-6 tw-max-w-[550px] tw-text-gray-800 dark:tw-text-gray-300">Freelance Data Research &amp; Market Analyst based in the Philippines (Remote).</p>
 <a href="https://tally.so/r/woO0Kx" target="_blank" rel="noopener" class="btn-primary !tw-w-full tw-max-w-[550px] tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.02]">Contact me</a>
@@ -53,6 +53,7 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 <button class="tab-btn tab-active" role="tab" aria-selected="true" data-tab="about" onclick="openTab(event, 'about')">About</button>
 <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="skills" onclick="openTab(event, 'skills')">Skills</button>
 <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="experience" onclick="openTab(event, 'experience')">Experience</button>
+<button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="projects" onclick="openTab(event, 'projects')">Projects</button>
 <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="call" onclick="openTab(event, 'call')">Schedule Call</button>
 </div>
 <div class="tw-m-2 tw-ml-auto tw-flex tw-place-items-center tw-gap-2 max-lg:tw-mt-auto">
@@ -72,7 +73,7 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 <div class="hero-h tw-text-6xl tw-font-semibold tw-leading-[80px] max-lg:tw-text-4xl max-md:tw-leading-snug" data-anim>Hi, <br>I am <span class="tw-text-primary">Kerr Maangue</span></div>
 <div class="lead tw-mt-4 tw-max-w-[450px] tw-p-2 max-lg:tw-max-w-full" data-anim>Experienced Freelance Data Research and Market Analyst delivering data-driven insights, market analysis, and web solutions for client projects across various industries.</div>
 <div class="tw-mt-4 tw-flex tw-place-content-end tw-gap-4 tw-overflow-hidden tw-p-2" data-anim>
-<a href="work.html" class="btn-primary tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]">Projects</a>
+<a href="#projects" onclick="openTab(event, 'projects')" class="btn-primary tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]">Projects</a>
 <a href="mailto:kerr.maangue14@gmail.com" class="btn-ghost tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]">Contact</a>
 </div>
 </div>
@@ -107,6 +108,42 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 <h3 class="tw-text-3xl role-title">Dodge Construction Network</h3>
 <p class="tw-text-gray-500 dark:tw-text-gray-200">2018 &ndash; 2023</p>
 <p>Managed construction project documentation, analytics, and data aggregation.</p></div></div>
+</div>
+</div>
+</section>
+<section class="tab-content tw-relative tw-flex tw-hidden tw-h-full tw-w-full tw-flex-col tw-overflow-hidden max-lg:tw-p-4" data-tab-name="projects">
+<div class="projects-wrap">
+<h2 class="projects-title" data-anim>Selected projects</h2>
+<p class="projects-sub" data-anim>Project highlights and the scope I handled. Sample files use placeholder data, not client records.</p>
+<div class="projects-grid">
+<article class="project-card" data-anim>
+<img src="assets/projects/mountain-view-campus.jpg" alt="Mountain View Public Safety Campus site" width="600" height="340" loading="lazy">
+<div class="project-body">
+<h3>Mountain View Public Safety Campus Program</h3>
+<p class="project-meta">2025 &middot; Mountain View, CA &middot; $100M+ public safety campus</p>
+<p>A unified view of the New Public Safety Building and the Parking Garage, with pre-construction administrative coordination for city stakeholders.</p>
+<ul><li>RFP/RFQ tracking across both components</li><li>Master submittal log and RFI register</li><li>Pre-construction look-ahead schedule</li></ul>
+<div class="pills"><span class="pill">Procore</span><span class="pill">Bluebeam Revu</span><span class="pill">RFI Register</span><span class="pill">Submittal Log</span></div>
+<div class="project-links"><a class="link" href="downloads/rfi-submittal-log.xlsx" target="_blank" rel="noopener">Sample RFI &amp; submittal log (XLSX)</a><a class="link" href="downloads/milestone-lookahead-tracker.xlsx" target="_blank" rel="noopener">Sample look-ahead tracker (XLSX)</a></div>
+</div></article><article class="project-card" data-anim>
+<img src="assets/projects/manhattan-middle-school.jpg" alt="Manhattan Middle School" width="600" height="340" loading="lazy">
+<div class="project-body">
+<h3>Manhattan Middle School Improvements</h3>
+<p class="project-meta">Colorado &middot; $455k CTE renovation</p>
+<p>Building systems, plumbing, ADA and a $455k CTE renovation, with pre-construction management support.</p>
+<ul><li>Master schedule tracking and permit logs</li><li>RFI and submittal coordination</li><li>$455k CTE budget tracking</li></ul>
+<div class="pills"><span class="pill">Excel Budget Modeling</span><span class="pill">ADA Audits</span><span class="pill">Submittal Tracking</span><span class="pill">Smartsheet</span></div>
+<div class="project-links"><a class="link" href="downloads/ada-facility-compliance-audit-checklist.pdf" target="_blank" rel="noopener">Sample ADA audit checklist (PDF)</a></div>
+</div></article><article class="project-card" data-anim>
+<img src="assets/projects/dcn-highrise.jpg" alt="Dodge Construction Network project research" width="600" height="340" loading="lazy">
+<div class="project-body">
+<h3>Dodge Construction Network: Public Planning Data</h3>
+<p class="project-meta">2018&ndash;2023 &middot; Remote data and records</p>
+<p>Tracked public capital improvement plans (CIPs) and valued projects from public planning data using one consistent code price method.</p>
+<ul><li>Tracked CIPs and managed Dodge Reports (V1s)</li><li>Logged RFIs and de-duplicated project records</li><li>Managed source communications</li></ul>
+<div class="pills"><span class="pill">CIP Extraction</span><span class="pill">Dodge Reports (V1)</span><span class="pill">RFI Logs</span><span class="pill">Deduplication</span></div>
+<div class="project-links"><a class="link" href="downloads/code-price-list-estimating-matrix.pdf" target="_blank" rel="noopener">Sample estimating matrix (PDF)</a><a class="link" href="downloads/code-price-list-estimating-matrix.xlsx" target="_blank" rel="noopener">Sample estimating matrix (XLSX)</a></div>
+</div></article>
 </div>
 </div>
 </section>
