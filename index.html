@@ -13,15 +13,16 @@ if(localStorage.getItem('theme-v2')==='light')r.classList.remove('tw-dark');else
 var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success)$/.test(t))r.setAttribute('data-theme',t);
 }catch(e){r.classList.add('tw-dark')}})();
 </script>
-<link rel="icon" type="image/svg+xml" href="assets/logo-premium.svg">
-<link rel="alternate icon" href="assets/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=2">
+<link rel="alternate icon" href="assets/favicon.ico?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <meta property="og:title" content="Kerr Maangue | Freelance Data Research &amp; Market Analyst">
 <meta property="og:description" content="Data-driven insights, market analysis, and web solutions for client projects across various industries.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kerrmaangue.github.io/">
 <link rel="stylesheet" href="./css/tailwind-build.css">
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/index.css?v=31">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body class="tw-flex tw-w-full tw-flex-col tw-bg-[#fff] tw-text-black dark:tw-bg-slate-800 dark:tw-text-white lg:tw-h-[100vh]">
@@ -32,12 +33,15 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 <img src="assets/images/people/kerr.jpg" class="tw-h-full tw-w-full tw-object-cover" alt="Portrait of Kerr Maangue" width="250" height="250">
 </div></div>
 <h1 class="name tw-text-3xl tw-font-semibold">Kerr Maangue</h1>
-<p class="bio tw-mt-6 tw-max-w-[550px] tw-text-gray-800 dark:tw-text-gray-300">Freelance Data Research &amp; Market Analyst based in the Philippines (Remote).</p>
-<a href="https://tally.so/r/woO0Kx" target="_blank" rel="noopener" class="btn-primary !tw-w-full tw-max-w-[550px] tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.02]">Contact me</a>
+<p class="role-line">Freelance Data Research &amp; Market Analyst</p>
+<p class="bio tw-max-w-[550px] tw-text-gray-800 dark:tw-text-gray-300">Based in the Philippines (Remote). I research construction and market data, verify leads, and build clean, fast web pages.</p>
+<a href="https://tally.so/r/woO0Kx" target="_blank" rel="noopener" aria-label="Contact Kerr Maangue (opens a form in a new tab)" class="btn-primary !tw-w-full tw-max-w-[550px] tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.02]">Contact me</a>
 <div class="tw-mt-auto tw-flex tw-flex-col tw-gap-2">
 <h3 class="tw-text-xl">Newsletter</h3>
 <form class="tw-flex tw-gap-2" action="https://formspree.io/f/mppwvgeg" method="POST">
-<input type="email" name="email" placeholder="you@example.com" aria-label="Email address" required class="input">
+<input type="hidden" name="_subject" value="New newsletter signup: kerrmaangue.github.io">
+<input type="hidden" name="source" value="kerrmaangue.github.io">
+<input type="email" name="email" placeholder="Your email address" aria-label="Your email address" required class="input">
 <button type="submit" class="btn-primary">Sign up</button>
 </form>
 </div>
@@ -72,7 +76,7 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 <div class="tw-flex tw-flex-col tw-place-content-center">
 <div class="hero-h tw-text-6xl tw-font-semibold tw-leading-[80px] max-lg:tw-text-4xl max-md:tw-leading-snug" data-anim>Hi, <br>I am <span class="tw-text-primary">Kerr Maangue</span></div>
 <div class="lead tw-mt-4 tw-max-w-[450px] tw-p-2 max-lg:tw-max-w-full" data-anim>Experienced Freelance Data Research and Market Analyst delivering data-driven insights, market analysis, and web solutions for client projects across various industries.</div>
-<div class="tw-mt-4 tw-flex tw-place-content-end tw-gap-4 tw-overflow-hidden tw-p-2" data-anim>
+<div class="hero-actions tw-mt-4 tw-flex tw-place-content-end tw-gap-4 tw-overflow-hidden tw-p-2" data-anim>
 <a href="#projects" onclick="openTab(event, 'projects')" class="btn-primary tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]">Projects</a>
 <a href="mailto:kerr.maangue14@gmail.com" class="btn-ghost tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]">Contact</a>
 </div>
@@ -80,15 +84,16 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 </div>
 </section>
 <section class="tab-content tw-relative tw-flex tw-hidden tw-h-full tw-w-full tw-flex-col tw-overflow-hidden max-lg:tw-p-4" data-tab-name="skills">
-<div class="tw-flex tw-h-full tw-w-full tw-flex-wrap tw-place-content-center tw-gap-6 tw-p-[5%] tw-px-[25%] max-xl:tw-place-items-center max-lg:tw-px-[10%] max-md:tw-px-2">
-<div class="skill-card tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl" data-anim>
-<div class="skill-tile"><svg aria-hidden="true" class="logo" viewBox="0 0 32 32" role="img" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#107C41"/><path d="M9 9l8 14M17 9l-8 14" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/><path d="M21.5 11h4M21.5 16h4M21.5 21h4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity=".7"/></svg><b>Excel</b></div></div><div class="skill-card tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl" data-anim>
-<div class="skill-tile"><svg aria-hidden="true" class="logo" viewBox="0 0 32 32" role="img" aria-hidden="true"><path fill="#00A1E0" d="M13.4 8.2a5.3 5.3 0 0 1 8 2.3 4.6 4.6 0 0 1 1.9-.4 4.8 4.8 0 0 1 0 9.6 4.5 4.5 0 0 1-1.2-.2 4.2 4.2 0 0 1-5.7 1.6 5 5 0 0 1-9 -.9A4.5 4.5 0 0 1 4.3 12a4.4 4.4 0 0 1 3-.5 5.3 5.3 0 0 1 6.1-3.3z"/><text x="16" y="18.3" font-size="5.6" font-weight="700" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif">salesforce</text></svg><b>Salesforce</b></div></div><div class="skill-card tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl" data-anim>
-<div class="skill-tile"><img src="assets/images/icons/html5.png" alt="" width="64" height="64" loading="lazy"><b>HTML5</b></div></div><div class="skill-card tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl" data-anim>
-<div class="skill-tile"><img src="assets/images/icons/tailwind.png" alt="" width="64" height="64" loading="lazy"><b>Tailwind CSS</b></div></div><div class="skill-card tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl" data-anim>
-<div class="skill-tile"><img src="assets/images/icons/reactjs.png" alt="" width="64" height="64" loading="lazy"><b>React</b></div></div><div class="skill-card tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl" data-anim>
-<div class="skill-tile"><img src="assets/images/icons/django.png" alt="" width="64" height="64" loading="lazy"><b>Django</b></div></div><div class="skill-card tw-flex tw-h-[150px] tw-w-[150px] tw-place-content-center tw-items-center tw-rounded-lg tw-border-2 tw-border-primary tw-bg-white tw-shadow-xl" data-anim>
-<div class="skill-tile"><img src="assets/images/icons/aws.png" alt="" width="64" height="64" loading="lazy"><b>AWS</b></div></div>
+<div class="skills-wrap">
+<h2 class="skills-title" data-anim>Core skills</h2>
+<p class="skills-sub" data-anim>The areas I work in for clients.</p>
+<div class="skills-grid">
+<article class="skill-item" data-anim><i class="bi bi-bar-chart-line-fill" aria-hidden="true"></i><h3>Construction Data Research &amp; Market Analysis</h3><p>Tracking public capital plans and project data, and turning market research into clear findings.</p></article>
+<article class="skill-item" data-anim><i class="bi bi-headset" aria-hidden="true"></i><h3>Customer Service &amp; Client Engagement</h3><p>Clear, patient support and communication with customers and clients over phone and email.</p></article>
+<article class="skill-item" data-anim><i class="bi bi-patch-check-fill" aria-hidden="true"></i><h3>Data Verification &amp; Lead Research</h3><p>Verifying records, removing duplicates and researching leads so the data stays accurate.</p></article>
+<article class="skill-item" data-anim><i class="bi bi-clipboard-check-fill" aria-hidden="true"></i><h3>Administrative Support &amp; Procurement Assistance</h3><p>Submittal and RFI logs, bid tracking and vendor coordination for pre-construction teams.</p></article>
+<article class="skill-item" data-anim><i class="bi bi-code-slash" aria-hidden="true"></i><h3>Web Design, Maintenance &amp; GitHub Pages Deployment</h3><p>Building, updating and publishing fast static websites on GitHub Pages.</p></article>
+</div>
 </div>
 </section>
 <section class="tab-content tw-relative tw-flex tw-hidden tw-h-full tw-w-full tw-flex-col tw-overflow-hidden max-lg:tw-p-4" data-tab-name="experience">
@@ -154,7 +159,7 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 </div>
 </section>
 </div>
-<footer class="site-footer"><span>&copy; 2026 Kerr Maangue</span><span>Philippines (Remote)</span></footer>
+<footer class="site-footer"><span>&copy; 2026 Kerr Maangue</span><address class="footer-contact"><span>Philippines (Remote)</span><a href="mailto:kerr.maangue14@gmail.com">kerr.maangue14@gmail.com</a><a href="https://github.com/kerrmaangue" target="_blank" rel="noopener">github.com/kerrmaangue</a><a href="https://linkedin.com/in/maanguekerr" target="_blank" rel="noopener">linkedin.com/in/maanguekerr</a></address></footer>
 </div>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js" integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
