@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="brand">
+<html lang="en" data-theme="warning">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +10,19 @@
 <script>
 (function(){var r=document.documentElement;try{
 if(localStorage.getItem('theme-v2')==='light')r.classList.remove('tw-dark');else r.classList.add('tw-dark');
-var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success)$/.test(t))r.setAttribute('data-theme',t);
+var t=localStorage.getItem('color-theme-v2');if(t&&/^(brand|primary|warning|success)$/.test(t))r.setAttribute('data-theme',t);
 }catch(e){r.classList.add('tw-dark')}})();
 </script>
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=2">
-<link rel="alternate icon" href="assets/favicon.ico?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=3">
+<link rel="alternate icon" href="assets/favicon.ico?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=3">
 <meta property="og:title" content="Kerr Maangue | Freelance Data Research &amp; Market Analyst">
 <meta property="og:description" content="Data-driven insights, market analysis, and web solutions for client projects across various industries.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kerrmaangue.github.io/">
 <link rel="stylesheet" href="./css/tailwind-build.css">
-<link rel="stylesheet" href="css/index.css?v=31">
+<link rel="stylesheet" href="css/index.css?v=32">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body class="tw-flex tw-w-full tw-flex-col tw-bg-[#fff] tw-text-black dark:tw-bg-slate-800 dark:tw-text-white lg:tw-h-[100vh]">
@@ -35,7 +35,7 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 <h1 class="name tw-text-3xl tw-font-semibold">Kerr Maangue</h1>
 <p class="role-line">Freelance Data Research &amp; Market Analyst</p>
 <p class="bio tw-max-w-[550px] tw-text-gray-800 dark:tw-text-gray-300">Based in the Philippines (Remote). I research construction and market data, verify leads, and build clean, fast web pages.</p>
-<a href="https://tally.so/r/woO0Kx" target="_blank" rel="noopener" aria-label="Contact Kerr Maangue (opens a form in a new tab)" class="btn-primary !tw-w-full tw-max-w-[550px] tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.02]">Contact me</a>
+<a href="mailto:kerr.maangue14@gmail.com?subject=Portfolio%20inquiry" aria-label="Contact Kerr Maangue" aria-haspopup="dialog" class="js-open-contact btn-primary !tw-w-full tw-max-w-[550px] tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.02]">Contact me</a>
 <div class="tw-mt-auto tw-flex tw-flex-col tw-gap-2">
 <h3 class="tw-text-xl">Newsletter</h3>
 <form class="tw-flex tw-gap-2" action="https://formspree.io/f/mppwvgeg" method="POST">
@@ -62,9 +62,9 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 </div>
 <div class="tw-m-2 tw-ml-auto tw-flex tw-place-items-center tw-gap-2 max-lg:tw-mt-auto">
 <select onchange="switchTheme()" id="theme-selector" aria-label="Color theme" class="input !tw-h-fit !tw-p-1 tw-text-black dark:tw-text-white">
-<option value="brand" selected>Burnt orange</option>
+<option value="brand">Burnt orange</option>
 <option value="primary">Primary</option>
-<option value="warning">Warning</option>
+<option value="warning" selected>Warm amber</option>
 <option value="success">Success</option>
 </select>
 <button class="tw-w-[30px]" id="toggle-mode-btn" onclick="toggleMode()" aria-label="Toggle light and dark mode"><i class="bi bi-sun-fill" id="toggle-mode-icon"></i></button>
@@ -78,7 +78,7 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 <div class="lead tw-mt-4 tw-max-w-[450px] tw-p-2 max-lg:tw-max-w-full" data-anim>Experienced Freelance Data Research and Market Analyst delivering data-driven insights, market analysis, and web solutions for client projects across various industries.</div>
 <div class="hero-actions tw-mt-4 tw-flex tw-place-content-end tw-gap-4 tw-overflow-hidden tw-p-2" data-anim>
 <a href="#projects" onclick="openTab(event, 'projects')" class="btn-primary tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]">Projects</a>
-<a href="mailto:kerr.maangue14@gmail.com" class="btn-ghost tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]">Contact</a>
+<a href="mailto:kerr.maangue14@gmail.com" aria-haspopup="dialog" class="js-open-contact btn-ghost tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]">Contact</a>
 </div>
 </div>
 </div>
@@ -162,8 +162,34 @@ var t=localStorage.getItem('color-theme');if(t&&/^(brand|primary|warning|success
 <footer class="site-footer"><span>&copy; 2026 Kerr Maangue</span><address class="footer-contact"><span>Philippines (Remote)</span><a href="mailto:kerr.maangue14@gmail.com">kerr.maangue14@gmail.com</a><a href="https://github.com/kerrmaangue" target="_blank" rel="noopener">github.com/kerrmaangue</a><a href="https://linkedin.com/in/maanguekerr" target="_blank" rel="noopener">linkedin.com/in/maanguekerr</a></address></footer>
 </div>
 </main>
+<dialog id="contact-dialog" class="contact-dialog" aria-labelledby="contact-title">
+<div class="contact-panel">
+<button type="button" class="contact-close" data-close aria-label="Close contact form"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+<h2 id="contact-title" class="contact-title">Kerr Maangue</h2>
+<p class="contact-role">Freelancer &amp; Virtual Assistant / Research Specialist</p>
+<p class="contact-intro">I am Kerr, and I am excited to connect with you. Use this form to reach out regarding construction data research, lead verification, customer support, administrative assistance, or website maintenance.</p>
+<form id="inquiry-form" class="contact-form" data-mailto="kerr.maangue14@gmail.com" data-endpoint="" novalidate>
+<input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label class="field">Full Name<input type="text" name="name" class="input" autocomplete="name" required autofocus></label>
+<label class="field">Email Address<input type="email" name="email" class="input" autocomplete="email" required></label>
+<label class="field"><span>Phone / Social Handle <span class="opt">(optional)</span></span><input type="text" name="contact" class="input" placeholder="Phone number or social handle"></label>
+<label class="field">Service Requested<select name="service" class="input" required>
+<option value="" selected disabled>Select a service</option>
+<option>Construction Data Research &amp; Market Analysis</option>
+<option>Data Verification &amp; Lead Research</option>
+<option>Customer Service &amp; Client Support</option>
+<option>Administrative Support &amp; Procurement Assistance</option>
+<option>Web Design &amp; Website Maintenance</option>
+</select></label>
+<label class="field">Project Details / Inquiry<textarea name="details" class="input" rows="4" required></textarea></label>
+<label class="field"><span>Estimated Budget <span class="opt">(optional)</span></span><input type="text" name="budget" class="input" placeholder="For example, a fixed amount or a range"></label>
+<button type="submit" class="btn-primary submit-btn">Send inquiry</button>
+<p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+</form>
+</div>
+</dialog>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js" integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js" integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./index.js"></script>
+<script src="./index.js?v=32"></script>
 </body>
 </html>

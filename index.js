@@ -70,12 +70,12 @@ function switchTheme(){
     const themeSelector = document.querySelector("#theme-selector")
 
     document.querySelector("html").setAttribute("data-theme", themeSelector.value)
-    try { localStorage.setItem("color-theme", themeSelector.value) } catch (e) {}
+    try { localStorage.setItem("color-theme-v2", themeSelector.value) } catch (e) {}
 }
 
 // restore saved theme into the dropdown
 try {
-    const savedTheme = localStorage.getItem("color-theme")
+    const savedTheme = localStorage.getItem("color-theme-v2")
     const sel = document.querySelector("#theme-selector")
     if (savedTheme && sel && sel.querySelector(`option[value="${savedTheme}"]`)) sel.value = savedTheme
 } catch (e) {}
@@ -193,12 +193,25 @@ if (trackEl) {
 }
 
 /* ------------------------------------------------------------------
-   Get Started form
-   - If data-endpoint on the <form> is set (Formspree, Web3Forms, ...), the
-     form POSTs JSON there.
-   - Otherwise it opens the visitor's email app with the message prefilled,
-     which works on any static host with no backend.
+   Contact dialog + inquiry form
+   - Every .js-open-contact link opens the dialog (without JS they fall back
+     to a plain mailto: link).
+   - If data-endpoint on the <form> is set (a Formspree URL, for example), the
+     form POSTs JSON there and Formspree emails it to the address configured
+     on that form.
+   - Otherwise it opens the visitor's email app with the message prefilled for
+     data-mailto, which works on any static host with no backend.
 ------------------------------------------------------------------- */
+;(function initContactDialog(){
+    const dlg = document.querySelector("#contact-dialog")
+    if (!dlg || typeof dlg.showModal !== "function") return
+    document.querySelectorAll(".js-open-contact").forEach((el) => {
+        el.addEventListener("click", (e) => { e.preventDefault(); dlg.showModal() })
+    })
+    dlg.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => dlg.close()))
+    dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close() }) // click on the backdrop
+})()
+
 ;(function initInquiryForm(){
     const form = document.querySelector("#inquiry-form")
     if (!form) return
@@ -218,7 +231,7 @@ if (trackEl) {
         const bad = Array.from(form.querySelectorAll("[required]")).find((f) => !f.value.trim() || !f.checkValidity())
         if (bad){
             bad.focus()
-            say(bad.type === "email" ? "Please enter a valid email address." : "Please fill in every field.", false)
+            say(bad.type === "email" ? "Please enter a valid email address." : "Please complete the required fields.", false)
             return
         }
 
@@ -230,11 +243,15 @@ if (trackEl) {
                 const res = await fetch(endpoint, {
                     method: "POST",
                     headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                    body: JSON.stringify({ name: data.name, email: data.email, service: data.service, details: data.details })
+                    body: JSON.stringify({
+                        _subject: "Portfolio inquiry: " + data.service,
+                        name: data.name, email: data.email, contact: data.contact,
+                        service: data.service, budget: data.budget, details: data.details
+                    })
                 })
                 if (!res.ok) throw new Error("bad response")
                 form.reset()
-                say("Thanks " + data.name.split(" ")[0] + ", your inquiry is in. I will reply within one business day.", true)
+                say("Thanks " + data.name.split(" ")[0] + ", your inquiry has been sent. I will get back to you soon.", true)
             } catch (err) {
                 say("Something went wrong. Please email " + form.dataset.mailto + " directly.", false)
             } finally {
@@ -243,9 +260,13 @@ if (trackEl) {
             return
         }
 
-        const subject = encodeURIComponent("Project inquiry: " + data.service)
+        const subject = encodeURIComponent("Portfolio inquiry: " + data.service)
         const body = encodeURIComponent(
-            "Name: " + data.name + "\nEmail: " + data.email + "\nService: " + data.service + "\n\nProject details:\n" + data.details
+            "Name: " + data.name + "\nEmail: " + data.email +
+            (data.contact ? "\nPhone / social: " + data.contact : "") +
+            "\nService: " + data.service +
+            (data.budget ? "\nEstimated budget: " + data.budget : "") +
+            "\n\nProject details:\n" + data.details
         )
         window.location.href = "mailto:" + form.dataset.mailto + "?subject=" + subject + "&body=" + body
         say("Opening your email app with the message ready to send. If nothing opens, write to " + form.dataset.mailto + ".", true)

@@ -1,0 +1,1 @@
+Delete assets/favicon.svg (the old plain black circle) if you applied the previous zip.
