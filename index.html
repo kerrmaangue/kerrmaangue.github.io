@@ -22,7 +22,7 @@ var t=localStorage.getItem('color-theme-v2');if(t&&/^(brand|primary|warning|succ
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kerrmaangue.github.io/">
 <link rel="stylesheet" href="./css/tailwind-build.css">
-<link rel="stylesheet" href="css/index.css?v=32">
+<link rel="stylesheet" href="css/index.css?v=33">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body class="tw-flex tw-w-full tw-flex-col tw-bg-[#fff] tw-text-black dark:tw-bg-slate-800 dark:tw-text-white lg:tw-h-[100vh]">
@@ -56,6 +56,7 @@ var t=localStorage.getItem('color-theme-v2');if(t&&/^(brand|primary|warning|succ
 <div role="tablist" aria-label="Sections" class="tw-absolute tw-left-[50%] tw-top-4 tw-flex tw-h-[60px] tw-translate-x-[-50%] tw-gap-4 tw-overflow-x-auto tw-rounded-md tw-border-2 tw-border-primary tw-p-1 tw-px-4 max-md:tw-w-full md:tw-w-fit">
 <button class="tab-btn tab-active" role="tab" aria-selected="true" data-tab="about" onclick="openTab(event, 'about')">About</button>
 <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="skills" onclick="openTab(event, 'skills')">Skills</button>
+<button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="services" onclick="openTab(event, 'services')">Services</button>
 <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="experience" onclick="openTab(event, 'experience')">Experience</button>
 <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="projects" onclick="openTab(event, 'projects')">Projects</button>
 <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="call" onclick="openTab(event, 'call')">Schedule Call</button>
@@ -96,24 +97,128 @@ var t=localStorage.getItem('color-theme-v2');if(t&&/^(brand|primary|warning|succ
 </div>
 </div>
 </section>
-<section class="tab-content tw-relative tw-flex tw-hidden tw-h-full tw-w-full tw-flex-col tw-overflow-hidden max-lg:tw-p-4" data-tab-name="experience">
-<div class="tw-flex tw-h-full tw-w-full tw-flex-wrap tw-place-content-center tw-gap-6 tw-p-[5%] tw-px-[25%] max-xl:tw-place-items-center max-md:tw-px-1">
-<div></div>
-<div class="timeline tw-flex tw-flex-col tw-gap-5">
-<div class="timeline-container tw-relative tw-mb-8" data-anim>
-<div class="tw-flex tw-max-w-[550px] tw-flex-col tw-gap-2 tw-p-1 max-lg:tw-max-w-[320px]">
-<h3 class="tw-text-3xl role-title">Freelance Data Research / Market Analyst</h3>
-<p class="tw-text-gray-500 dark:tw-text-gray-200">2023 &ndash; Present</p>
-<p>Providing remote data research, market analysis, web layout development, and client research.</p></div></div><div class="timeline-container tw-relative tw-mb-8" data-anim>
-<div class="tw-flex tw-max-w-[550px] tw-flex-col tw-gap-2 tw-p-1 max-lg:tw-max-w-[320px]">
-<h3 class="tw-text-3xl role-title">Data Research / Market Analyst</h3>
-<p class="tw-text-gray-500 dark:tw-text-gray-200">June 2, 2025 &ndash; October 1, 2026</p>
-<p>Executed targeted market research, lead generation, and industry analytics.</p></div></div><div class="timeline-container tw-relative tw-mb-8" data-anim>
-<div class="tw-flex tw-max-w-[550px] tw-flex-col tw-gap-2 tw-p-1 max-lg:tw-max-w-[320px]">
-<h3 class="tw-text-3xl role-title">Dodge Construction Network</h3>
-<p class="tw-text-gray-500 dark:tw-text-gray-200">2018 &ndash; 2023</p>
-<p>Managed construction project documentation, analytics, and data aggregation.</p></div></div>
+<section class="tab-content tw-relative tw-flex tw-hidden tw-h-full tw-w-full tw-flex-col tw-overflow-hidden max-lg:tw-p-4" data-tab-name="services">
+<div class="svc-wrap">
+<h2 class="svc-title" data-anim>Services offered</h2>
+<p class="svc-sub" data-anim>Choose a service to see its scope, deliverables and tools, or get started right away.</p>
+<div class="svc-grid">
+<article class="svc-card" data-anim>
+<i class="bi bi-bar-chart-line-fill" aria-hidden="true"></i>
+<h3>Construction Data Research &amp; Market Analysis</h3>
+<p>Public planning data and market research turned into organized project records and clear, usable findings.</p>
+<div class="svc-actions">
+<button type="button" class="btn-ghost" data-dialog="svc-construction" aria-haspopup="dialog">Learn more<span class="sr-only"> about Construction Data Research &amp; Market Analysis</span></button>
+<button type="button" class="btn-primary" data-get-started data-service="Construction Data Research &amp; Market Analysis">Get started</button>
 </div>
+</article>
+<article class="svc-card" data-anim>
+<i class="bi bi-headset" aria-hidden="true"></i>
+<h3>Customer Support &amp; Client Engagement</h3>
+<p>Clear, patient support for your customers and clients, with every conversation documented.</p>
+<div class="svc-actions">
+<button type="button" class="btn-ghost" data-dialog="svc-support" aria-haspopup="dialog">Learn more<span class="sr-only"> about Customer Support &amp; Client Engagement</span></button>
+<button type="button" class="btn-primary" data-get-started data-service="Customer Service &amp; Client Support">Get started</button>
+</div>
+</article>
+<article class="svc-card" data-anim>
+<i class="bi bi-patch-check-fill" aria-hidden="true"></i>
+<h3>Lead Research &amp; Data Verification</h3>
+<p>Accurate lead lists and records, checked against sources and cleaned of duplicates.</p>
+<div class="svc-actions">
+<button type="button" class="btn-ghost" data-dialog="svc-leads" aria-haspopup="dialog">Learn more<span class="sr-only"> about Lead Research &amp; Data Verification</span></button>
+<button type="button" class="btn-primary" data-get-started data-service="Data Verification &amp; Lead Research">Get started</button>
+</div>
+</article>
+<article class="svc-card" data-anim>
+<i class="bi bi-clipboard-check-fill" aria-hidden="true"></i>
+<h3>Administrative Support &amp; Procurement Assistance</h3>
+<p>Organized logs, schedules and vendor coordination for pre-construction and project teams.</p>
+<div class="svc-actions">
+<button type="button" class="btn-ghost" data-dialog="svc-admin" aria-haspopup="dialog">Learn more<span class="sr-only"> about Administrative Support &amp; Procurement Assistance</span></button>
+<button type="button" class="btn-primary" data-get-started data-service="Administrative Support &amp; Procurement Assistance">Get started</button>
+</div>
+</article>
+<article class="svc-card" data-anim>
+<i class="bi bi-code-slash" aria-hidden="true"></i>
+<h3>Web Design &amp; GitHub Pages Maintenance</h3>
+<p>Clean, fast, mobile-friendly websites, built and kept up to date on GitHub Pages.</p>
+<div class="svc-actions">
+<button type="button" class="btn-ghost" data-dialog="svc-web" aria-haspopup="dialog">Learn more<span class="sr-only"> about Web Design &amp; GitHub Pages Maintenance</span></button>
+<button type="button" class="btn-primary" data-get-started data-service="Web Design &amp; Website Maintenance">Get started</button>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="tab-content tw-relative tw-flex tw-hidden tw-h-full tw-w-full tw-flex-col tw-overflow-hidden max-lg:tw-p-4" data-tab-name="experience">
+<div class="exp-wrap">
+<h2 class="exp-title" data-anim>Experience &amp; resume</h2>
+<p class="exp-sub" data-anim>Where I have worked and what I handled.</p>
+<div class="resume-card" data-anim>
+<div class="resume-head">
+<i class="bi bi-file-earmark-person-fill" aria-hidden="true"></i>
+<div><h3>Resume</h3><p>One-page PDF with my summary, software stack and project experience.</p></div>
+</div>
+<div class="resume-actions">
+<a class="btn-primary" href="assets/Kerr_Maangue_Resume_SinglePage.pdf" download="Kerr_Maangue_Resume.pdf"><i class="bi bi-download" aria-hidden="true"></i><span>Download Resume</span></a>
+<button type="button" class="btn-ghost" id="resume-toggle" aria-expanded="false" aria-controls="resume-preview"><i class="bi bi-eye" aria-hidden="true"></i><span>Preview resume</span></button>
+<a class="resume-link" href="assets/Kerr_Maangue_Resume_SinglePage.pdf" target="_blank" rel="noopener">Open in a new tab</a>
+</div>
+<div id="resume-preview" class="resume-preview" hidden>
+<object class="resume-frame" type="application/pdf" data-src="assets/Kerr_Maangue_Resume_SinglePage.pdf#view=FitH" aria-label="Resume preview"><p>Your browser cannot show PDFs here. Use the Download Resume button or open it in a new tab.</p></object>
+</div>
+</div>
+<ol class="exp-list">
+<li class="exp-item" data-anim>
+<h3 class="exp-role">Freelance Specialist</h3>
+<p class="exp-org">Independent · Remote</p>
+<p class="exp-date">2023 &ndash; Present</p>
+<ul class="exp-points">
+<li>Delivered fractional pre-construction administrative coordination, document control and project tracking for capital improvement projects in California, Colorado, Texas and Illinois.</li>
+<li>Mountain View Public Safety Campus (CA): pre-construction coordination and master submittal logs for a $100M+ public safety building and parking garage.</li>
+<li>Manhattan Middle School Improvements (CO): supported project management from pre-construction planning through construction tracking, including a $455k CTE renovation and ADA compliance.</li>
+<li>Maintained master document logs, submittal registers and multi-agency records for a university campus project (TX) and municipal water facilities (CO).</li>
+<li>Provide remote data research, market analysis and web layout development for clients.</li>
+</ul>
+</li>
+<li class="exp-item" data-anim>
+<h3 class="exp-role">Data Research / Market Analyst</h3>
+<p class="exp-org">Remote</p>
+<p class="exp-date">June 2, 2025 &ndash; October 1, 2026</p>
+<ul class="exp-points">
+<li>Executed targeted market research and industry analytics.</li>
+<li>Carried out lead generation and research.</li>
+</ul>
+</li>
+<li class="exp-item" data-anim>
+<h3 class="exp-role">Customer Service Representative</h3>
+<p class="exp-org">iQor</p>
+<p class="exp-date">October 2026 &ndash; Present</p>
+<ul class="exp-points">
+<li>Respond to customer inquiries and resolve issues following company processes.</li>
+<li>Document each interaction accurately and follow up where needed.</li>
+</ul>
+</li>
+<li class="exp-item" data-anim>
+<h3 class="exp-role">Customer Service Representative</h3>
+<p class="exp-org">OfficePartners 360 (2025)</p><p class="exp-org">Amazon (until late 2024)</p>
+<p class="exp-date">Until late 2024 &ndash; 2025</p>
+<ul class="exp-points">
+<li>Supported customers and resolved inquiries across both roles.</li>
+<li>Kept clear records of each case and escalated issues when needed.</li>
+</ul>
+</li>
+<li class="exp-item" data-anim>
+<h3 class="exp-role">National Public Planning Reporter / Remote Project Controls Specialist</h3>
+<p class="exp-org">Dodge Construction Network</p>
+<p class="exp-date">2018 &ndash; 2023</p>
+<ul class="exp-points">
+<li>Monitored Capital Improvement Plans, State Revolving Funds, bond referendums and municipal agendas across major US regions.</li>
+<li>Created and updated initial Dodge Reports (V1s), logged RFIs, tracked A/E selection schedules and kept project records free of duplicates.</li>
+<li>Used Code Price List v3.2 matrices to calculate preliminary project valuations across General Building, Civil/Engineering and DOT sectors.</li>
+</ul>
+</li>
+</ol>
 </div>
 </section>
 <section class="tab-content tw-relative tw-flex tw-hidden tw-h-full tw-w-full tw-flex-col tw-overflow-hidden max-lg:tw-p-4" data-tab-name="projects">
@@ -162,6 +267,137 @@ var t=localStorage.getItem('color-theme-v2');if(t&&/^(brand|primary|warning|succ
 <footer class="site-footer"><span>&copy; 2026 Kerr Maangue</span><address class="footer-contact"><span>Philippines (Remote)</span><a href="mailto:kerr.maangue14@gmail.com">kerr.maangue14@gmail.com</a><a href="https://github.com/kerrmaangue" target="_blank" rel="noopener">github.com/kerrmaangue</a><a href="https://linkedin.com/in/maanguekerr" target="_blank" rel="noopener">linkedin.com/in/maanguekerr</a></address></footer>
 </div>
 </main>
+<dialog id="svc-construction" class="contact-dialog svc-dialog" aria-labelledby="svc-construction-title">
+<div class="contact-panel">
+<button type="button" class="contact-close" data-close aria-label="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+<h2 id="svc-construction-title" class="contact-title">Construction Data Research &amp; Market Analysis</h2>
+<p class="contact-intro">Finding, tracking and valuing construction projects from public planning sources such as capital improvement plans, bond measures and municipal agendas, plus market research on the sectors and regions you care about.</p>
+<h3 class="svc-h">Key deliverables</h3>
+<ul class="svc-list">
+<li>A tracked project pipeline with source references</li>
+<li>Cleaned, de-duplicated project records</li>
+<li>Preliminary valuations using one consistent price method</li>
+<li>A short findings summary for decision-makers</li>
+</ul>
+<h3 class="svc-h">Tools used</h3>
+<div class="pills"><span class="pill">Excel</span><span class="pill">Google Sheets</span><span class="pill">Dodge IRIS</span><span class="pill">Code price matrices</span></div>
+<h3 class="svc-h">Typical use cases</h3>
+<ul class="svc-list">
+<li>Building a bid or lead pipeline from public capital plans</li>
+<li>Sizing a regional market before entering it</li>
+<li>Keeping a project database current and free of duplicates</li>
+</ul>
+<div class="svc-actions svc-actions-modal">
+<button type="button" class="btn-primary" data-get-started data-service="Construction Data Research &amp; Market Analysis">Get started</button>
+<button type="button" class="btn-ghost" data-close>Close</button>
+</div>
+</div>
+</dialog>
+<dialog id="svc-support" class="contact-dialog svc-dialog" aria-labelledby="svc-support-title">
+<div class="contact-panel">
+<button type="button" class="contact-close" data-close aria-label="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+<h2 id="svc-support-title" class="contact-title">Customer Support &amp; Client Engagement</h2>
+<p class="contact-intro">Handling customer and client inquiries, following up until they are resolved, and keeping accurate case records so nothing gets dropped.</p>
+<h3 class="svc-h">Key deliverables</h3>
+<ul class="svc-list">
+<li>Prompt, courteous replies to inquiries</li>
+<li>Case notes logged in your CRM or helpdesk</li>
+<li>Follow-ups on open issues</li>
+<li>A summary of recurring questions and pain points</li>
+</ul>
+<h3 class="svc-h">Tools used</h3>
+<div class="pills"><span class="pill">Salesforce</span><span class="pill">Microsoft Teams</span><span class="pill">Zoom</span><span class="pill">Gmail</span><span class="pill">Google Calendar</span></div>
+<h3 class="svc-h">Typical use cases</h3>
+<ul class="svc-list">
+<li>Covering the inbox or support queue for a small team</li>
+<li>Client intake and onboarding</li>
+<li>Scheduling and follow-up with leads and clients</li>
+</ul>
+<div class="svc-actions svc-actions-modal">
+<button type="button" class="btn-primary" data-get-started data-service="Customer Service &amp; Client Support">Get started</button>
+<button type="button" class="btn-ghost" data-close>Close</button>
+</div>
+</div>
+</dialog>
+<dialog id="svc-leads" class="contact-dialog svc-dialog" aria-labelledby="svc-leads-title">
+<div class="contact-panel">
+<button type="button" class="contact-close" data-close aria-label="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+<h2 id="svc-leads-title" class="contact-title">Lead Research &amp; Data Verification</h2>
+<p class="contact-intro">Researching prospects and companies, then verifying contact and project details against public sources so your outreach and databases stay reliable.</p>
+<h3 class="svc-h">Key deliverables</h3>
+<ul class="svc-list">
+<li>Researched lead lists in the format you use</li>
+<li>Verified details with source notes</li>
+<li>De-duplicated, standardized records</li>
+<li>A short quality-check summary</li>
+</ul>
+<h3 class="svc-h">Tools used</h3>
+<div class="pills"><span class="pill">Excel</span><span class="pill">Google Sheets</span><span class="pill">Salesforce</span><span class="pill">Dodge IRIS</span></div>
+<h3 class="svc-h">Typical use cases</h3>
+<ul class="svc-list">
+<li>Preparing a lead list before an outreach campaign</li>
+<li>Cleaning up a CRM export</li>
+<li>Confirming project details before bidding</li>
+</ul>
+<div class="svc-actions svc-actions-modal">
+<button type="button" class="btn-primary" data-get-started data-service="Data Verification &amp; Lead Research">Get started</button>
+<button type="button" class="btn-ghost" data-close>Close</button>
+</div>
+</div>
+</dialog>
+<dialog id="svc-admin" class="contact-dialog svc-dialog" aria-labelledby="svc-admin-title">
+<div class="contact-panel">
+<button type="button" class="contact-close" data-close aria-label="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+<h2 id="svc-admin-title" class="contact-title">Administrative Support &amp; Procurement Assistance</h2>
+<p class="contact-intro">Pre-construction administrative coordination: tracking RFIs and submittals, maintaining look-ahead schedules and bid information, and keeping project documents in order.</p>
+<h3 class="svc-h">Key deliverables</h3>
+<ul class="svc-list">
+<li>RFI register and master submittal log</li>
+<li>Pre-construction look-ahead schedule</li>
+<li>Bid and RFP/RFQ tracking sheet</li>
+<li>Budget and vendor tracking in Excel</li>
+<li>ADA audit checklists</li>
+</ul>
+<h3 class="svc-h">Tools used</h3>
+<div class="pills"><span class="pill">Procore</span><span class="pill">Bluebeam Revu</span><span class="pill">Smartsheet</span><span class="pill">Excel</span><span class="pill">Microsoft 365</span></div>
+<h3 class="svc-h">Typical use cases</h3>
+<ul class="svc-list">
+<li>Supporting a capital project from pre-construction planning through construction</li>
+<li>Keeping submittals and RFIs organized across several agencies</li>
+<li>Preparing and tracking bid packages</li>
+</ul>
+<div class="svc-actions svc-actions-modal">
+<button type="button" class="btn-primary" data-get-started data-service="Administrative Support &amp; Procurement Assistance">Get started</button>
+<button type="button" class="btn-ghost" data-close>Close</button>
+</div>
+</div>
+</dialog>
+<dialog id="svc-web" class="contact-dialog svc-dialog" aria-labelledby="svc-web-title">
+<div class="contact-panel">
+<button type="button" class="contact-close" data-close aria-label="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+<h2 id="svc-web-title" class="contact-title">Web Design &amp; GitHub Pages Maintenance</h2>
+<p class="contact-intro">Designing and building simple static websites and portfolio pages, then maintaining them with content updates, fixes, and responsive and accessibility improvements.</p>
+<h3 class="svc-h">Key deliverables</h3>
+<ul class="svc-list">
+<li>A responsive one-page or small multi-page site</li>
+<li>GitHub Pages setup and deployment</li>
+<li>Ongoing content, layout and bug-fix updates</li>
+<li>Light and dark themes, favicon and contact form setup</li>
+</ul>
+<h3 class="svc-h">Tools used</h3>
+<div class="pills"><span class="pill">HTML5</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">Tailwind CSS</span><span class="pill">GitHub Pages</span><span class="pill">Git</span></div>
+<h3 class="svc-h">Typical use cases</h3>
+<ul class="svc-list">
+<li>A portfolio or one-page business site</li>
+<li>Refreshing an outdated static site</li>
+<li>Adding a contact form or booking calendar</li>
+</ul>
+<div class="svc-actions svc-actions-modal">
+<button type="button" class="btn-primary" data-get-started data-service="Web Design &amp; Website Maintenance">Get started</button>
+<button type="button" class="btn-ghost" data-close>Close</button>
+</div>
+</div>
+</dialog>
 <dialog id="contact-dialog" class="contact-dialog" aria-labelledby="contact-title">
 <div class="contact-panel">
 <button type="button" class="contact-close" data-close aria-label="Close contact form"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
@@ -190,6 +426,6 @@ var t=localStorage.getItem('color-theme-v2');if(t&&/^(brand|primary|warning|succ
 </dialog>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js" integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js" integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./index.js?v=32"></script>
+<script src="./index.js?v=33"></script>
 </body>
 </html>

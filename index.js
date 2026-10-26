@@ -195,21 +195,67 @@ if (trackEl) {
 /* ------------------------------------------------------------------
    Contact dialog + inquiry form
    - Every .js-open-contact link opens the dialog (without JS they fall back
-     to a plain mailto: link).
+     to a plain mailto: link). Service cards open their own dialogs, and every
+     "Get started" button opens this form with that service preselected.
    - If data-endpoint on the <form> is set (a Formspree URL, for example), the
      form POSTs JSON there and Formspree emails it to the address configured
      on that form.
    - Otherwise it opens the visitor's email app with the message prefilled for
      data-mailto, which works on any static host with no backend.
 ------------------------------------------------------------------- */
-;(function initContactDialog(){
-    const dlg = document.querySelector("#contact-dialog")
-    if (!dlg || typeof dlg.showModal !== "function") return
+;(function initDialogs(){
+    // Set this to your own Tally form URL to send every "Contact" / "Get started" button there instead of the built-in form.
+    const TALLY_URL = ""
+    const MAILTO = "mailto:kerr.maangue14@gmail.com?subject=Portfolio%20inquiry"
+    const contact = document.querySelector("#contact-dialog")
+    const canModal = (d) => d && typeof d.showModal === "function"
+
+    function openContact(service){
+        if (TALLY_URL){ window.open(TALLY_URL, "_blank", "noopener"); return }
+        if (!canModal(contact)){ window.location.href = MAILTO; return }
+        const sel = contact.querySelector("select[name='service']")
+        if (service && sel && Array.from(sel.options).some((o) => o.value === service)) sel.value = service
+        contact.showModal()
+    }
+
     document.querySelectorAll(".js-open-contact").forEach((el) => {
-        el.addEventListener("click", (e) => { e.preventDefault(); dlg.showModal() })
+        el.addEventListener("click", (e) => { e.preventDefault(); openContact() })
     })
-    dlg.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => dlg.close()))
-    dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close() }) // click on the backdrop
+    document.querySelectorAll("[data-dialog]").forEach((el) => {
+        el.addEventListener("click", () => {
+            const d = document.getElementById(el.dataset.dialog)
+            if (canModal(d)) d.showModal()
+        })
+    })
+    document.querySelectorAll("[data-get-started]").forEach((el) => {
+        el.addEventListener("click", () => {
+            const parent = el.closest("dialog")
+            if (parent) parent.close()
+            openContact(el.dataset.service)
+        })
+    })
+    document.querySelectorAll("dialog").forEach((d) => {
+        d.addEventListener("click", (e) => { if (e.target === d) d.close() }) // click on the backdrop
+        d.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => d.close()))
+    })
+})()
+
+// Resume preview: the PDF only loads the first time the panel is opened
+;(function initResume(){
+    const btn = document.querySelector("#resume-toggle")
+    const panel = document.querySelector("#resume-preview")
+    if (!btn || !panel) return
+    btn.addEventListener("click", () => {
+        const opening = panel.hasAttribute("hidden")
+        if (opening && !panel.dataset.loaded){
+            const obj = panel.querySelector("object")
+            obj.data = obj.dataset.src
+            panel.dataset.loaded = "1"
+        }
+        if (opening) panel.removeAttribute("hidden"); else panel.setAttribute("hidden", "")
+        btn.setAttribute("aria-expanded", String(opening))
+        btn.querySelector("span").textContent = opening ? "Hide preview" : "Preview resume"
+    })
 })()
 
 ;(function initInquiryForm(){
