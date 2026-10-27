@@ -204,14 +204,20 @@ if (trackEl) {
      data-mailto, which works on any static host with no backend.
 ------------------------------------------------------------------- */
 ;(function initDialogs(){
-    // Set this to your own Tally form URL to send every "Contact" / "Get started" button there instead of the built-in form.
+    // Paste your own Tally form URL here and every Contact / Book Service button opens it instead of the built-in form.
+    // The chosen service is sent as ?service=... (add a hidden field named "service" in Tally to receive it).
     const TALLY_URL = ""
     const MAILTO = "mailto:kerr.maangue14@gmail.com?subject=Portfolio%20inquiry"
     const contact = document.querySelector("#contact-dialog")
     const canModal = (d) => d && typeof d.showModal === "function"
 
     function openContact(service){
-        if (TALLY_URL){ window.open(TALLY_URL, "_blank", "noopener"); return }
+        if (TALLY_URL){
+            let url = TALLY_URL
+            try { const u = new URL(TALLY_URL, window.location.href); if (service) u.searchParams.set("service", service); url = u.href } catch (e) {}
+            window.open(url, "_blank", "noopener")
+            return
+        }
         if (!canModal(contact)){ window.location.href = MAILTO; return }
         const sel = contact.querySelector("select[name='service']")
         if (service && sel && Array.from(sel.options).some((o) => o.value === service)) sel.value = service
