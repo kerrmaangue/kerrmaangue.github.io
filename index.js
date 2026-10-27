@@ -216,6 +216,7 @@ if (trackEl) {
         const sel = contact.querySelector("select[name='service']")
         if (service && sel && Array.from(sel.options).some((o) => o.value === service)) sel.value = service
         contact.showModal()
+        const cb = contact.querySelector(".modal-body"); if (cb) cb.scrollTop = 0
     }
 
     document.querySelectorAll(".js-open-contact").forEach((el) => {
@@ -224,7 +225,7 @@ if (trackEl) {
     document.querySelectorAll("[data-dialog]").forEach((el) => {
         el.addEventListener("click", () => {
             const d = document.getElementById(el.dataset.dialog)
-            if (canModal(d)) d.showModal()
+            if (canModal(d)){ d.showModal(); const body = d.querySelector(".modal-body"); if (body) body.scrollTop = 0 }
         })
     })
     document.querySelectorAll("[data-get-started]").forEach((el) => {
