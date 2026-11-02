@@ -1,7 +1,6 @@
 # KERR MAANGUE
 **Assistant Property Manager | Real Estate Operations & Construction Data Research**
 Location: Philippines (Remote) | Email: kerr.maangue14@gmail.com | WhatsApp: +639524763002
-Portfolio: kerrmaangue.github.io | GitHub: github.com/kerrmaangue
 
 ## PROFESSIONAL SUMMARY
 Assistant Property Manager and real estate data researcher with six years of combined experience in residential and commercial property operations and construction project research. Skilled in resident relations, lease administration, rent record-keeping, vendor and maintenance coordination, property inspections and compliance documentation, supported by permit, zoning and market-data verification for commercial and public developments.
