@@ -208,9 +208,16 @@ if (trackEl) {
     // The chosen service is sent as ?service=... (add a hidden field named "service" in Tally to receive it).
     const TALLY_URL = ""
     const MAILTO = "mailto:kerr.maangue14@gmail.com?subject=Portfolio%20inquiry"
+    const WA_NUM = "639524763002"
     const contact = document.querySelector("#contact-dialog")
     const canModal = (d) => d && typeof d.showModal === "function"
 
+    function waText(extra){
+        return "Hello Kerr, I found your portfolio and would like to get in touch." + (extra ? "\nService: " + extra : "")
+    }
+    function setWa(service){
+        document.querySelectorAll("[data-wa]").forEach((a) => { a.href = "https://wa.me/" + WA_NUM + "?text=" + encodeURIComponent(waText(service)) })
+    }
     function openContact(service){
         if (TALLY_URL){
             let url = TALLY_URL
@@ -221,6 +228,7 @@ if (trackEl) {
         if (!canModal(contact)){ window.location.href = MAILTO; return }
         const sel = contact.querySelector("select[name='service']")
         if (service && sel && Array.from(sel.options).some((o) => o.value === service)) sel.value = service
+        setWa(service || (sel && sel.value) || "")
         contact.showModal()
         const cb = contact.querySelector(".modal-body"); if (cb) cb.scrollTop = 0
     }
@@ -268,6 +276,16 @@ if (trackEl) {
 ;(function initInquiryForm(){
     const form = document.querySelector("#inquiry-form")
     if (!form) return
+    const wa = document.querySelector("#wa-send")
+    if (wa){
+        wa.addEventListener("click", (e) => {
+            const d = Object.fromEntries(new FormData(form).entries())
+            const msg = "Hello Kerr, I would like to get in touch." +
+                (d.name ? "\nName: " + d.name : "") + (d.email ? "\nEmail: " + d.email : "") +
+                (d.service ? "\nService: " + d.service : "") + (d.details ? "\n\n" + d.details : "")
+            wa.href = "https://wa.me/639524763002?text=" + encodeURIComponent(msg)
+        })
+    }
     const status = document.querySelector("#form-status")
     const btn = form.querySelector(".submit-btn")
 
@@ -306,7 +324,7 @@ if (trackEl) {
                 form.reset()
                 say("Thanks " + data.name.split(" ")[0] + ", your inquiry has been sent. I will get back to you soon.", true)
             } catch (err) {
-                say("Something went wrong. Please email " + form.dataset.mailto + " directly.", false)
+                say("Something went wrong. Please email " + form.dataset.mailto + " or message +639524763002 on WhatsApp.", false)
             } finally {
                 btn.disabled = false
             }
@@ -316,10 +334,10 @@ if (trackEl) {
         const subject = encodeURIComponent("Portfolio inquiry: " + data.service)
         const body = encodeURIComponent(
             "Name: " + data.name + "\nEmail: " + data.email +
-            (data.contact ? "\nPhone / social: " + data.contact : "") +
+            (data.contact ? "\nPhone / WhatsApp: " + data.contact : "") +
             "\nService: " + data.service +
             (data.budget ? "\nEstimated budget: " + data.budget : "") +
-            "\n\nProject details:\n" + data.details
+            "\n\nInquiry details:\n" + data.details
         )
         window.location.href = "mailto:" + form.dataset.mailto + "?subject=" + subject + "&body=" + body
         say("Opening your email app with the message ready to send. If nothing opens, write to " + form.dataset.mailto + ".", true)

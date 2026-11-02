@@ -562,3 +562,21 @@ html:not(.tw-dark) .contact-dialog, html.tw-dark .contact-dialog{ background-ima
 .exp-cols{ display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.1rem 2rem; }
 .exp-tools{ margin-top: 1.25rem; }
 .exp-tools .pills{ gap: .5rem; }
+
+
+/* ===== v36: property-management retarget. WhatsApp contact row, softer remaining edges, five-card grids ===== */
+.contact-direct{ display: flex; flex-wrap: wrap; gap: .5rem 1.1rem; margin: 0 0 1rem; font-size: .92rem; }
+.contact-direct .link{ display: inline-flex; align-items: center; gap: .4rem; overflow-wrap: anywhere; }
+.contact-direct .bi-whatsapp{ color: #25D366; }
+.wa-btn{ display: inline-flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; }
+.wa-btn .bi-whatsapp{ color: #25D366; }
+.modal-foot-col .wa-btn{ width: 100%; }
+.site-footer .footer-contact a{ overflow-wrap: anywhere; }
+.btn-ghost{ border-color: color-mix(in srgb, var(--color-primary) 55%, transparent); }
+.field .input, .input{ border-color: color-mix(in srgb, var(--ink) 22%, transparent); }
+.field .input:focus, .input:focus{ border-color: var(--color-primary); }
+.exp-card, .svc-card, .skill-item, .project-card, .resume-card{ border-color: var(--edge); }
+.exp-list{ border-left-width: 1px; }
+.exp-item::before{ border-width: 2px; }
+.contact-direct{ margin-top: .75rem; }
+.contact-dialog .input:focus-visible, .input:focus-visible{ outline: 0; box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 28%, transparent); border-color: color-mix(in srgb, var(--color-primary) 70%, transparent); }
